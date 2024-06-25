@@ -1,8 +1,9 @@
 import { Header } from "./components/header";
+import "./styles/home.scss"
 
 export default function Home() {
   return (
-    <main>
+    <main className="container">
 
       <Header/>
         
