@@ -1,3 +1,4 @@
+import { Experience } from "./components/experience/experience";
 import { Header } from "./components/header";
 import "./styles/home.scss"
 
@@ -6,12 +7,8 @@ export default function Home() {
     <main className="container">
 
       <Header/>
+      <Experience/>
         
-        <div className="experience">
-          <h3>About me</h3>
-          <p>Tech enthusiast</p>
-        </div>
-
         <div className="infos">
           <span>🇺🇸 EN Intermediary</span>
           <span>🇧🇷 PT BR Native Speaker</span>
