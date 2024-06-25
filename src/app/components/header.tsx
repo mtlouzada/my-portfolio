@@ -1,5 +1,5 @@
-import Image from "next/image"
-import "./header.scss"
+import Image from "next/image";
+import "./header.scss";
 
 
 export function Header(){
@@ -9,13 +9,13 @@ export function Header(){
             <h1>Hi, I´m Matheus! 🛹</h1>
             <h2>Web Developer</h2>
           </div>
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              width={100}
-              height={24}
-              priority
-            />
-      </div>
-    )
+          <Image
+            src="/me.jpg"
+            alt="Vercel Logo"
+            width={325}
+            height={277}
+            priority
+          />
+        </div>
+    );
 }
