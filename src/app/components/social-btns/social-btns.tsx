@@ -8,16 +8,16 @@ import "./social-btns.scss"
 export function SocialBtns() {
     return(
         <div className="social">
-            <a href="">
+            <a href="https://www.instagram.com/mt.louzada/" target="black">
                 <InstaIcon/>
             </a>
-            <a href="">
+            <a href="https://www.linkedin.com/in/matheus-louzadaa/" target="black">
                 <LinkedinIcon/>
             </a>
-            <a href="">
+            <a href="https://github.com/mtlouzada" target="black">
                 <GithubIcon/>
             </a>
-            <a href="">
+            <a href="https://x.com/mt_lou_zada" target="black">
                 <TwitterIcon/>
             </a>
         </div>
