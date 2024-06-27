@@ -1,5 +1,6 @@
 import { Experience } from "./components/experience/experience";
 import { Header } from "./components/header";
+import { Information } from "./components/information/information"
 import "./styles/home.scss"
 
 export default function Home() {
@@ -8,23 +9,11 @@ export default function Home() {
 
       <Header/>
       <Experience/>
-        
-        <div className="infos">
-          <span>🇺🇸 EN Intermediary</span>
-          <span>🇧🇷 PT BR Native Speaker</span>
-        </div>
+      <Information/>
 
-        <h3>Education</h3>
-        <div className="educational-info">
-          <span>🎓</span>
-          <span>Systems Analysis and Development - Universidade Estásio de Sá</span>
-          <div className="buttons">
-            <div className="social">
-
-            </div>
-            <button>contact me</button>
-          </div>
-        </div>
-    </main>
+        <div>
+          <button>contact me</button>
+        </div >
+    </main >
   );
 }

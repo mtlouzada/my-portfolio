@@ -1,0 +1,13 @@
+.information {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .languages-info {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        align-items: flex-start;
+    }
+
+}
