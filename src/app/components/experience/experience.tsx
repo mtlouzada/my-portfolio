@@ -17,7 +17,11 @@ export function Experience() {
                         height={40}
                         priority
                     />
+                    <div className="time-bar">
+                        <div className="time-measure"></div>
+                    </div>
                 </div>
+
                 <div>
                     <Image
                         src="/js-icon.png"
