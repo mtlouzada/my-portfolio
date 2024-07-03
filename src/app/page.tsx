@@ -1,5 +1,4 @@
-import { Experience } from "./components/experience/experience";
-import { Header } from "./components/header";
+import { Header } from "../app/components/header/header";
 import { EmailIcon } from "./components/icons/email-icon";
 import { Information } from "./components/information/information"
 import { SocialBtns } from "./components/social-btns/social-btns";
@@ -10,7 +9,6 @@ export default function Home() {
     <main className="container">
 
       <Header/>
-      <Experience/>
       <Information/>
       <div className="buttons">
         <SocialBtns/>
