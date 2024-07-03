@@ -1,9 +1,7 @@
 .container {
     display: flex;
     flex-direction: column;
-    padding: 40px 32px;
     gap: 24px;
-    justify-items: center;
 
     .buttons {
         display: flex;
@@ -38,7 +36,6 @@
 @media (min-width: 768px){
     .container{
         padding: 70px 60px;
-        height: 100vh;
         align-items: center;
         justify-items: start;
         justify-content: space-between;
