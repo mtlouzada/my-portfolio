@@ -1,15 +1,9 @@
 .container {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     padding: 40px 32px;
     gap: 24px;
     justify-items: center;
-    grid-template-rows: repeat(4, auto);
-    grid-template-areas: 
-    "header"
-    "btns"
-    "experience"
-    "info";
-
 
     .buttons {
         display: flex;
@@ -17,7 +11,6 @@
         justify-content: center;
         flex-direction: column;
         gap: 24px;
-        grid-area: btns;
         width: 100%;
     }
     .btn-primary {
@@ -46,14 +39,8 @@
     .container{
         padding: 70px 60px;
         height: 100vh;
-        grid-template-rows: fit-content(100%);
-        grid-template-columns: 60% 30%;
         align-items: center;
         justify-items: start;
         justify-content: space-between;
-        grid-template-areas:
-        "header info"
-        "experience empty-1"
-        "empty-2 btns";
     }
 }
