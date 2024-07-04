@@ -6,7 +6,7 @@ export function Information() {
    
             <div className="educational-info">
                 <span>🎓</span>
-                <span>Systems Analysis and Development - Universidade Estásio de Sá</span>
+                <span>Analize e Desenvolvimento de Sistemas - Universidade Estásio de Sá</span>
             </div>
         </div>
             );

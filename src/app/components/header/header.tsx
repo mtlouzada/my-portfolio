@@ -8,14 +8,14 @@ export function Header() {
     <div className="header">
       <div>
         <h1>Matheus Louzada</h1>
-        <h2>Web Developer</h2>
+        <h2>Desenvolvedor Web</h2>
       </div>
 
       <div className="buttons">
         <SocialBtns />
         <div>
           <a className="btn-primary" href="mailto:mtlouzadaw3d@gmail.com">
-            contact me
+            Entre em contato
             <EmailIcon />
           </a>
         </div >
