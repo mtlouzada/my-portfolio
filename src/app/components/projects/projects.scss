@@ -1,5 +1,7 @@
 .container-projetos{
     display: grid;
+    grid-template-columns: 2;
+    grid-template-rows: 2;
 
     a{
         text-decoration: none;
