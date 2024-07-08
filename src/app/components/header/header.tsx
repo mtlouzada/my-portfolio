@@ -6,6 +6,7 @@ import "./header.scss";
 export function Header() {
   return (
     <div className="header">
+
       <div>
         <h1>Matheus Louzada</h1>
         <h2>Desenvolvedor Web</h2>
@@ -13,13 +14,16 @@ export function Header() {
 
       <div className="buttons">
         <SocialBtns />
+
         <div>
           <a className="btn-primary" href="mailto:mtlouzadaw3d@gmail.com">
             Entre em contato
             <EmailIcon />
           </a>
         </div >
+
       </div>
+
     </div>
   );
 }
