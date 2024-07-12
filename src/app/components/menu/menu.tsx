@@ -2,7 +2,7 @@ import './menu.scss';
 
 export function Menu() {
     return(
-        <div>Menu</div>
+        <div className='container-menu'>Menu bar</div>
 
     );
 }
