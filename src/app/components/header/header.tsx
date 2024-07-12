@@ -11,6 +11,7 @@ export function Header() {
       <Menu/>
 
       <div>
+        <img className="me" src="/perfil-portfolio.jpg" alt="Foto Perfil" />
         <h1>Matheus Louzada</h1>
         <h2>Desenvolvedor Web</h2>
       </div>
