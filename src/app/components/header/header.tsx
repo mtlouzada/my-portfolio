@@ -1,11 +1,14 @@
 import { SocialBtns } from "../social-btns/social-btns";
 import { EmailIcon } from "../icons/email-icon";
+import { Menu } from "../menu/menu";
 import "./header.scss";
 
 
 export function Header() {
   return (
+    
     <div className="header">
+      <Menu/>
 
       <div>
         <h1>Matheus Louzada</h1>
