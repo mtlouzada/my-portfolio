@@ -8,4 +8,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    .nav-bar a{
+        color: var(--text-primary);
+        text-decoration: none;
+        padding: 5px;
+    }
 }
