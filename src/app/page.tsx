@@ -9,6 +9,22 @@ export default function Home() {
 
       <Header/>
       <Information/>
+      <div>
+        <img className="me" src="/perfil-portfolio.jpg" alt="Foto Perfil" />
+        <h1>Matheus Louzada</h1>
+        <h2>Desenvolvedor Web</h2>
+      </div>
+
+      <div className="buttons">
+
+        <div>
+          <a className="btn-primary" href="mailto:mtlouzadaw3d@gmail.com">
+            Entre em contato
+           
+          </a>
+        </div >
+
+      </div>
       <Projects/>
     </main >
   );
