@@ -1,4 +1,7 @@
 import './App.css'
+import { MdOutlineMailOutline } from "react-icons/md";
+import { FaLinkedin } from "react-icons/fa6";
+import { FaGithub } from "react-icons/fa";
 
 function App() {
 
@@ -7,15 +10,22 @@ function App() {
       <div>
 
 
-        <header>
+        <header id='about' className=''>
+
           <div className='menu-bar'>
-            <div>
-              <a href="">matheuslouzadaa@gmail.com</a>
-                <a href="">CV</a>
+            <div className='left-nav-bar mouse-transition'>
+              <a href="mailto:matheuslouzadaa@gmail.com" target='black'><MdOutlineMailOutline />matheuslouzadaa</a>
             </div>
-            <div>
-              <a href="https://www.linkedin.com/in/matheus-louzadaa/" target='black'>LinkedIn</a>
-              <a href="https://github.com/mtlouzada" target='black'>GitHub</a>
+
+            <div className='center-nav-bar mouse-transition'>
+              <a href="#about">about</a>
+              <a href="#projects">projects</a>
+              <a href="#contact">contact</a>
+            </div>
+
+            <div className='right-nav-bar mouse-transition-special'>
+              <a href="https://www.linkedin.com/in/matheus-louzadaa/" target='black'><FaLinkedin /></a>
+              <a href="https://github.com/mtlouzada" target='black'><FaGithub /></a>
             </div>
           </div>
 
@@ -37,7 +47,7 @@ function App() {
 
         </header>
 
-        <main>
+        <main id='projects' className=''>
 
           <h2>Melhores Projetos</h2>
 
@@ -67,7 +77,7 @@ function App() {
 
         </main>
 
-        <footer>
+        <footer id='contact' className=''>
           <div>
           <h3>Meu Email:</h3>
           <a href="">matheuslouzadaa@gmail.com</a>
