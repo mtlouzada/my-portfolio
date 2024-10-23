@@ -2,6 +2,10 @@ import './App.css'
 import { MdOutlineMailOutline } from "react-icons/md";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
+import { FaCloudDownloadAlt } from "react-icons/fa";
+import { HiOutlineMailOpen } from "react-icons/hi";
+import { TfiEmail } from "react-icons/tfi";
+import { GiCloudDownload } from "react-icons/gi";
 
 function App() {
 
@@ -10,7 +14,7 @@ function App() {
       <div>
 
 
-        <header id='about' className=''>
+        <header id='about' className='header-container'>
 
           <div className='menu-bar'>
 
@@ -35,17 +39,23 @@ function App() {
             <img src="./ft-perfil.jpg" alt="Foto Perfil"/>
 
             <div className='text-container'>
+              
               <h1>Matheus Louzada</h1>
               <h3>Desenvolvedor web</h3>
+              
 
+              
               <p>
-              Me formei em ADS no fim de 2023, desde então estou fazendo cursos profissionalizantes focado no desenvolvimento Web2. Também participei de um BootCamp seguido de um Hackathon na ICP HUB Brasil, onde tive a experiência de desenvolver um projeto em equipe e apresentá-lo.
+                Me formei em ADS no fim de 2023, desde então estou fazendo cursos profissionalizantes focado no desenvolvimento Web2. Também participei de um BootCamp seguido de um Hackathon na ICP HUB Brasil, onde tive a experiência de desenvolver um projeto em equipe e apresentá-lo.
 
-              Estudo sobre programação diariamente, me desafiando a criar projetos completos, utilizando bibliotecas, frameworks e banco de dados para isso. Desenvolvendo autonomia na criação de código e aprimorando o meu raciocínio lógico. Visando ser capaz de entregar soluções tecnológicas de forma rápida e eficaz.
+                Estudo sobre programação diariamente, me desafiando a criar projetos completos, utilizando bibliotecas, frameworks e banco de dados para isso. Desenvolvendo autonomia na criação de código e aprimorando o meu raciocínio lógico. Visando ser capaz de entregar soluções tecnológicas de forma rápida e eficaz.
               </p>
+              
 
-              <a href="">Ver Currículo</a>
-              <a href="">Enviar Email</a>
+              
+              <a href="" className='large-button'>Ver Currículo <FaCloudDownloadAlt className='icon-default'/><GiCloudDownload className='icon-hover'/></a>
+              <a href="mailto:matheuslouzadaa@gmail.com" className='large-button'><TfiEmail  className='icon-default'/><HiOutlineMailOpen className='icon-hover'/> Enviar Email</a>
+              
             </div>
 
           </div>
