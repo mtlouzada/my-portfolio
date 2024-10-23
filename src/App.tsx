@@ -37,7 +37,11 @@ function App() {
 
           </div>
 
-          <div className='bio-container'>
+        </header>
+
+        <main id='projects' className=''>
+
+        <div className='bio-container'>
             <img src="./ft-perfil.jpg" alt="Foto Perfil"/>
 
             <div className='text-container'>
@@ -61,10 +65,6 @@ function App() {
             </div>
 
           </div>
-
-        </header>
-
-        <main id='projects' className=''>
 
           <a href=""><FaSun /><FaMoon /></a>
 
