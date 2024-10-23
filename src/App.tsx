@@ -6,6 +6,8 @@ import { FaCloudDownloadAlt } from "react-icons/fa";
 import { HiOutlineMailOpen } from "react-icons/hi";
 import { TfiEmail } from "react-icons/tfi";
 import { GiCloudDownload } from "react-icons/gi";
+import { FaSun } from "react-icons/fa";
+import { FaMoon } from "react-icons/fa6";
 
 function App() {
 
@@ -63,6 +65,8 @@ function App() {
         </header>
 
         <main id='projects' className=''>
+
+          <a href=""><FaSun /><FaMoon /></a>
 
           <h2>Melhores Projetos</h2>
 
