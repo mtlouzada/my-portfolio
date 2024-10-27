@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 
+    titulo
+  -->
+
+  <title>Matheus Louzada - Front-end Developer</title>
+
+  <!-- 
+    favicon
+  -->
+
+  <link rel="shortcut icon" href="../imgs/favicon.png" type="image/x-icon">
+  
+  <!-- 
+    fontes
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,900&display=swap" rel="stylesheet">
+
+  <!-- 
+    css link
+  -->
+  <link rel="stylesheet" href="../style.css">
+
+</head>
+
+<body>
+
+  <!-- 
+    - circulo
+  -->
+
+  <div class="preloader" data-preloader>
+    <div class="circle"></div>
+  </div>
+
+  <!-- 
+    header
+  -->
+
+  <header class="header" data-header>
+
+    <div class="container">
+
+      <div class="logo-pt">
+
+      <a href="mailto:matheuslouzadaa@gmail.com" target="_blank" class="logo">
+        matheuslouzadaa|
+      </a>
+
+      
+      <a href="../../index.html" class="language-btn" onclick="toggleLanguage()">
+        <span id="language-label">EN <ion-icon class="ion-icon" name="language-outline" aria-hidden="true"></ion-icon></span>
+      </a>
+
+  </div>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+          <a href="mailto:matheuslouzadaa@gmail.com" target="_blank" class="logo">
+            matheuslouzadaa
+          </a>
+
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+
+        </div>
+
+        <ul class="navbar-list">
+
+          <li>
+            <a href="#sobre" class="navbar-link">ABOUT</a>
+          </li>
+
+          <li>
+            <a href="#habilidades" class="navbar-link">SKILLS</a>
+          </li>
+
+          <li>
+            <a href="#projetos" class="navbar-link">PROJECTS</a>
+          </li>
+
+        </ul>
+
+        <div class="wrapper">
+          <a href="mailto:matheuslouzadaa@gmail.com" target="_blank" class="contact-link">matheuslouzadaa@gmail.com</a>
+         
+
+        </div>
+
+        <ul class="social-list">
+
+          <li>
+            <a href="https://github.com/mtlouzada" target="_blank" class="social-link">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.linkedin.com/in/matheus-louzadaa/" target="_blank" class="social-link">
+              <ion-icon class="logo-matheusdin" name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+         
+
+        </ul>
+
+      </nav>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+  <main>
+    <article>
+
+      <!-- 
+        - hero
+      -->
+
+      <section id="sobre" class="section hero" aria-label="home">
+        <div class="container">
+
+          
+
+          <div class="hero-content">
+
+            
+            <div class="hero-banner">
+
+
+                <img class="img-perfil" src="../imgs/perfil.png" width="425px" alt="profile">
+              
+
+            </div>
+             
+               
+            <h1 class="h1 hero-title">Matheus Louzada</h1>
+
+            <p class="hero-subtitle">
+                Web Developer
+            </p>
+
+            
+
+            <p class="section-text">
+              I'm a Web Developer with experience in freelance projects, where I've had the opportunity to apply and enhance my technical skills. I have a genuine interest in technology and am constantly seeking to learn more, particularly in areas like UI/UX. I'm always exploring new tools and trends to stay up-to-date and continue evolving as a professional. My goal is to keep growing and make a meaningful contribution to every project I work on.
+            </p>
+
+            <div class="links-resume">
+
+            <a href="../pdf/cv-mtlouzada.pdf" target="_blank" class="btn has-before">
+
+              <span class="span">SEE CURRICULUM</span>
+            
+              <ion-icon name="download-outline" aria-hidden="true"></ion-icon>
+             
+
+            </a>
+
+
+
+          <!-- <div class="seguireContato">
+
+                 
+           
+              <a href="mailto:matheuslouzadaa@gmail.com" target="_blank"><i class="fas fa-envelope"></i> enviar mensagem
+                
+              </a>
+
+            </div> -->
+          
+      
+          </div>
+            
+      
+
+
+          </div>
+
+          
+          
+
+
+        
+
+        </div>
+      </section>
+
+
+
+
+      <!-- 
+        - habilidades
+      -->
+
+      <section id="habilidades"  class="service fade-in" aria-labelledby="service-label">
+        <div class="container">
+
+          <div class="title-wrapper">
+
+            <div>
+              <p class="section-subtitle">
+                Technical abilities
+              </p>
+
+              <h2 class="h2 section-title" id="service-label">Web Advance</h2>
+            </div>
+
+            
+
+          </div>
+
+          <div class="slider" data-slider>
+
+            <ul class="slider-container service-list" data-slider-container>
+
+              <li class="slider-item" data-slider-item>
+                <div class="service-card">
+
+                  <div class="card-icon">
+                    <i class="fab fa-html5"></i>
+                  </div>
+
+                  <h3 class="h3 card-title">HTML5</h3>
+
+                  <p class="card-text">
+                    - Semantics
+                    <br>
+                    - Elements
+                    <br>
+                    - Attributes
+                    <br>
+                    - Forms
+                  </p>
+
+       
+                </div>
+              </li>
+
+              <li class="slider-item" data-slider-item>
+                <div class="service-card">
+
+                  <div class="card-icon">
+                    <i class="fab fa-css3-alt"></i>
+                  </div>
+
+                  <h3 class="h3 card-title">CSS3</h3>
+
+                  <p class="card-text">
+                    - Heritage
+                    <br>
+                    - Flexbox/Grid
+                    <br>
+                    - Specificity
+                    <br>
+                    - Simple Animations
+                    <br>
+                    - Waterfall
+                    <br>
+                    - Media Queries
+                    <br>
+                    - Box Model
+                  </p>
+
+
+                </div>
+              </li>
+
+              <li class="slider-item" data-slider-item>
+                <div class="service-card">
+
+                  <div class="card-icon">
+                    <i class="fab fa-js-square"></i>
+                  </div>
+
+                  <h3 class="h3 card-title">JAVASCRIPT E LIBRARIES/
+                    FRAMEWORKS JS
+                    </h3>
+
+                  <p class="card-text">
+                    - React
+                    <br>
+                    - Node.Js
+                    <br>
+                    - Jest.Js
+                    <br>
+                    - Sintax
+                    <br>
+                    - DOM
+                    <br>
+                    - Fetch API
+                  </p>
+
+
+                </div>
+              </li>
+
+              <li class="slider-item" data-slider-item>
+                <div class="service-card">
+
+                  <div class="card-icon">
+                    <i class="fab fa-git"></i>
+                  </div>
+
+                  <h3 class="h3 card-title">CODE VERSIONING</h3>
+
+                  <p class="card-text">
+                    - Git
+                    <br>
+                    - GitHub
+                  </p>
+
+                 
+
+                </div>
+              </li>
+
+              <li class="slider-item" data-slider-item>
+                <div class="service-card">
+
+                  <div class="card-icon">
+                    <i class="fab fa-npm"></i>
+                  </div>
+
+                  <h3 class="h3 card-title">PACKAGE AND TESTING MANAGER</h3>
+
+                  <p class="card-text">
+                    - NPM
+                    <br>
+                    - PNPM
+                  </p>
+
+                  
+
+                </div>
+              </li>
+
+              <li class="slider-item" data-slider-item>
+                <div class="service-card">
+
+                  <div class="card-icon">
+                    <i class="fa-solid fa-code"></i>
+                  </div>
+
+                  <h3 class="h3 card-title">OTHERS</h3>
+
+                  <p class="card-text">
+                    - Typescript
+                    <br>
+                    - Python
+                    <br>
+                    - Redux
+                    <br>
+                    - Figma
+                    <br>
+                    - Vite
+                    <br>
+                    - Visual Studio Code (VScode)
+                  </p>
+
+                 
+
+                </div>
+              </li>
+
+            </ul>
+
+            <div class="slider-controls">
+              <button class="slider-control prev" data-slider-prev aria-label="Slide to previous item">
+                <div class="line"></div>
+                <div class="arrow"></div>
+              </button>
+
+              <button class="slider-control next" data-slider-next aria-label="Slide to next item">
+                <div class="line"></div>
+                <div class="arrow"></div>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+       <!-- 
+        - projetos especiais
+      -->
+
+      <section id="projetos" class="section blog fade-in" aria-labelledby="blog-label">
+        <div class="container">
+
+          <p class="section-subtitle" id="blog-label">Works</p>
+
+          <h2 class="h2 section-title">Best Projects</h2>
+
+          <ul class="blog-list">
+            
+            <li>
+              <div class="blog-card fade-in">
+                 
+                <a href="https://github.com/mtlouzada/turing-Challenger" target="_blank">
+                <figure class="card-banner img-holder" style="--width: 650; --height: 470;">
+                  <img src="../imgs/turingchallenger.png" width="650" height="470" loading="lazy"
+                    alt="Project-1" class="img-cover">
+                </figure>
+              </a>
+
+                <div class="card-content">
+
+
+                  <div>
+                    <h3 class="h3 card-title">Turing Challenger</h3>
+
+                    <p class="card-text">
+                      The goal of this project is to provide an informative and educational experience, where each question aims to promote learning and understanding about Turing's legacy. The implementation uses JavaScript to build the interactive logic, while the backend with Node.js manages the distribution of questions and answers, ensuring randomness and data storage.
+                    </p>
+
+              <div class="site-videos">
+
+                    <a href="https://github.com/mtlouzada/turing-Challenger" class="btn has-before" target="_blank">
+
+                      <span class="span">GO TO PROJECT</span>
+
+                      <ion-icon name="arrow-forward"></ion-icon>
+                      
+                    </a>
+
+                    <!-- <a class="btn has-before" onclick="toggleVideo('video1')">
+                      <span class="span">VER VIDEO</span>
+                      <ion-icon name="arrow-forward"></ion-icon>
+                      </a> -->
+                      
+                      <!-- <div class="trailer" id="video1">
+
+                        <video src="./src/videos/(link-em-breve)-video.mp4" controls="true"></video>
+
+                        <span class="fechar-modal" onclick="toggleVideo('video1')">X</span>
+                      
+                    </div>    -->
+
+                  </div>
+                    
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="blog-card fade-in">
+
+                <a href="https://github.com/mtlouzada/salary-VS-inflation" class="card-banner" target="_blank">
+                <figure class="img-holder" style="--width: 650; --height: 470;">
+                  
+                  <img src="../imgs/salarioXiflacao.png" width="650" height="470" loading="lazy"
+                    alt="salarioXiflacao" class="img-cover">
+                
+                </figure>
+              </a>
+             
+
+                <div class="card-content">
+
+                  <div>
+                    <h3 class="h3 card-title">Salario VS Iflacao</h3>
+
+                    <p class="card-text">
+                      This project was created to test my technical skills and programming logic, using JavaScript to build an application that addresses a challenge involving banking data and IPCA data.
+                    </p>
+
+                  <div class="site-videos">
+
+                 
+
+                    <a href="https://github.com/mtlouzada/salary-VS-inflation" class="btn has-before" target="_blank">
+                      <span class="span">GO TO PROJECT</span>
+
+                      <ion-icon name="arrow-forward"></ion-icon>
+                      
+                    </a> 
+                    
+                    <!-- <a class="btn has-before" onclick="toggleVideo('video2')">
+                      <span class="span">VER VIDEO</span>
+                      <ion-icon name="arrow-forward"></ion-icon>
+                      </a> -->
+                      
+                      <!-- <div class="trailer" id="video2">
+
+                        <video src="./src/videos/embreve.mp4" controls="true"></video>
+
+                        <span class="fechar-modal" onclick="toggleVideo('video2')">X</span>
+                      
+                    </div>    -->
+
+                  </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+
+              
+              <div class="blog-card fade-in">
+
+                <a href="https://github.com/mtlouzada/bot-discord" target="_blank">
+                <figure class="card-banner img-holder" style="--width: 650; --height: 470;">
+                  <img src="../imgs/discord-bot.png" width="650" height="470" loading="lazy"
+                    alt="Golden Rabbit" class="img-cover">
+                </figure>
+               </a>
+
+                <div class="card-content">
+
+
+                  <div>
+                    <h3 class="h3 card-title">BOT DISCORD</h3>
+
+                    <p class="card-text">
+                      I developed this project in JavaScript to test my back-end skills and create a bot for Discord. This bot notifies users about new videos on a skateboarding YouTube channel, marking my first step into bot development. It was an enriching experience to consolidate my knowledge and explore new possibilities in task automation.
+                    </p>
+
+                    <div class="site-videos">
+
+                    <a href="https://github.com/mtlouzada/bot-discord" class="btn has-before" target="_blank">
+                      <span class="span">GO TO PROJECT</span>
+
+                      <ion-icon name="arrow-forward"></ion-icon>
+                      
+                    </a>
+
+                    <!-- <a class="btn has-before" onclick="toggleVideo('video3')">
+                      <span class="span">VER VIDEO</span>
+                      <ion-icon name="arrow-forward"></ion-icon>
+                      </a> -->
+                      
+                      <div class="trailer" id="video3">
+
+                        <video src="./src/videos/embreve.mp4" controls="true"></video>
+
+                        <span class="fechar-modal" onclick="toggleVideo('video3')">X</span>
+                      
+                    </div> 
+
+                  </div>
+                    
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+           
+          </ul>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+    </section>
+
+  </article>
+</main>
+
+      <!-- 
+        - projetos antigos
+      -->
+
+      <section class="section portfolio fade-in" aria-labelledby="portfolio-label">
+
+        <div class="title-wrapper container">
+
+          <div>
+            <p class="section-subtitle" id="portfolio-label">Old Works</p>
+
+            <h2 class="h2 section-title">Other projects</h2>
+          </div>
+
+          <p class="section-text">
+            These are some of the projects I developed during my first programming course, on a platform focused on building a solid foundation in front-end and back-end development fundamentals.
+          </p>
+
+         
+
+        </div>
+
+        <div class="slider fade-in" data-slider>
+
+          <ul class="slider-container" data-slider-container>
+
+            <li class="slider-item">
+              <div class="portfolio-card img-holder" style="--width: 600; --height: 600;">
+
+                <img src="../imgs/coffe-house.png" width="600" height="600" loading="lazy" alt="portfolio"
+                  class="img-cover">
+
+                <div class="card-content">
+                  <h3 class="h3 card-title">Coffe House</h3>
+
+                  <p class="card-text">Site Ecommerce</p>
+                </div>
+
+                <a href="https://mtlouzada.github.io/Manhattan-Coffee-House/" target="_blank" class="layer-link"></a>
+
+              </div>
+            </li>
+
+            <li class="slider-item">
+              <div class="portfolio-card img-holder" style="--width: 600; --height: 600;">
+
+                <img src="../imgs/clinica.png" width="600" height="600" loading="lazy" alt="portfolio"
+                  class="img-cover">
+
+                <div class="card-content">
+                  <h3 class="h3 card-title">Clínica</h3>
+
+                  <p class="card-text">Site Ecommerce</p>
+                </div>
+
+                <a href="https://mtlouzada.github.io/clinica/" target="_blank" class="layer-link"></a>
+
+              </div>
+            </li>
+
+           
+
+            <li class="slider-item">
+              <div class="portfolio-card img-holder" style="--width: 600; --height: 600;">
+
+                <img src="../imgs/host-site.png" width="600" height="600" loading="lazy" alt="portfolio"
+                  class="img-cover">
+
+                <div class="card-content">
+                  <h3 class="h3 card-title">Hospedagem</h3>
+
+                  <p class="card-text">Site Ecommerce</p>
+                </div>
+
+                <a href="https://github.com/mtlouzada/Provedor" target="_blank" class="layer-link"></a>
+
+              </div>
+            </li>
+
+            <li class="slider-item">
+              <div class="portfolio-card img-holder" style="--width: 600; --height: 600;">
+
+                <img src="../imgs/pousada.png" width="600" height="600" loading="lazy" alt="portfolio"
+                  class="img-cover">
+
+                <div class="card-content">
+                  <h3 class="h3 card-title">Pousada</h3>
+
+                  <p class="card-text">Site Ecommerce</p>
+                </div>
+
+                <a href="https://github.com/mtlouzada/pousada-web" target="_blank" class="layer-link"></a>
+
+              </div>
+            </li>
+
+          </ul>
+
+          <div class="slider-controls">
+            <button class="slider-control prev" data-slider-prev aria-label="Slide to previous item">
+              <div class="line"></div>
+              <div class="arrow"></div>
+            </button>
+
+            <button class="slider-control next" data-slider-next aria-label="Slide to next item">
+              <div class="line"></div>
+              <div class="arrow"></div>
+            </button>
+          </div>
+
+        </div>
+
+      </section>
+
+    </article>
+  </main>
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+    <div class="container">
+
+      <ul class="footer-list">
+
+        <li>
+          <p class="h4 footer-list-title">My email:</p>
+        </li>
+
+        <li>
+          <a href="mailto:matheuslouzadaa@gmail.com" target="_blank"  class="footer-link">matheuslouzadaa@gmail.com</a>
+        </li>
+
+      </ul>
+
+      <ul class="footer-list">
+
+        <li>
+          <p class="h4 footer-list-title">Location:</p>
+        </li>
+
+        <li>
+          <p class="footer-link">Rio de Janeiro - Brazil</p>
+        </li>
+
+      </ul>
+
+      <ul class="social-list">
+
+        <li>
+          <a href="https://github.com/mtlouzada" target="_blank" class="social-link">
+            <i class="fab fa-github"></i>
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.linkedin.com/in/matheus-louzadaa/" target="_blank" class="social-link">
+            <ion-icon class="logo-linkedin" name="logo-linkedin"></ion-icon>
+          </a>
+        </li>
+
+
+      </ul>
+
+    </div>
+  </footer>
+
+  <!-- 
+    linkedin, Language e Back to top and Dark | White
+  -->
+
+  <a href="#theme" class="theme-btn" onclick="toggleTheme()">
+    <i class="fa-solid fa-moon"></i>
+</a> 
+
+  <a href="https://www.linkedin.com/in/matheus-louzadaa/" target="_blank">
+    <i class="fab fa-linkedin-in"></i>
+  </a>
+
+  <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="caret-up-sharp" aria-hidden="true"></ion-icon>
+  </a>
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="../app.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
