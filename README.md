@@ -4,7 +4,7 @@
 
  [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](http://shields.io/)
 
-_Leia isso em outra lingua:_ 🇺🇸 [_English_](./src/language/README.md) ⚪🔵
+_Leia isso em outra lingua:_ 🇺🇸 [_English_](./src/language/README-enUS.md) ⚪🔵
 
 
 ### Description:
