@@ -1,6 +1,6 @@
 # Meu Portfólio
 
-![print-forREADME](https://github.com/user-attachments/assets/f8e03040-aa59-4463-b628-22c1ec7d7d7e)
+![profile-backgroundBR](https://github.com/user-attachments/assets/8eb41d91-4ae5-4a6b-be7a-2904a72a4960)
 
  [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](http://shields.io/)
 
