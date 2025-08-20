@@ -67,3 +67,13 @@ export default tseslint.config([
   },
 ])
 ```
+
+
+# How to install tailwind version 3:
+
+```bash
+pnpm i -D tailwindcss@3
+```
+```bash
+pnpm exec tailwindcss init
+```
