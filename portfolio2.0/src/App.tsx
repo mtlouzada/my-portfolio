@@ -1,5 +1,4 @@
 import React from 'react';
-import './styles/index.css';
 
 function App() {
 
@@ -16,14 +15,7 @@ function App() {
 
             <div className="logo-pt">
               <a href="mailto:mtlouzadaw3d@gmail.com" target="_blank" className="logo">
-                mtlouzadaW3D |
-              </a>
-
-              <a href="./src/language/english.html" className="language-btn">
-                <span id="language-label">
-                  PT-BR
-                  <i className="ion-icon" aria-hidden="true"></i>
-                </span>
+                Email
               </a>
             </div>
 
@@ -31,12 +23,10 @@ function App() {
 
               <div className="navbar-top">
                 <a href="mailto:mtlouzadaw3d@gmail.com" target="_blank" className="logo">
-                  mtlouzadaW3D
+                  Email
                 </a>
 
-                <a className="nav-close-btn" aria-label="close menu" data-nav-toggler>
-                  {/* <ion-icon name="close-outline" aria-hidden="true"></ion-icon> */}
-                </a>
+               
 
               </div>
 
@@ -47,11 +37,11 @@ function App() {
                 </li>
 
                 <li>
-                  <a href="#projetos" className="navbar-link">PROJETOS</a>
+                  <a href="#projetos" className="navbar-link">SERVIÇOS</a>
                 </li>
 
                 <li>
-                  <a href="#habilidades" className="navbar-link">HABILIDADES</a>
+                  <a href="#habilidades" className="navbar-link">PROJETOS</a>
                 </li>
 
               </ul>
@@ -107,36 +97,10 @@ function App() {
                     Atuo no desenvolvimento web há pouco mais de 5 meses, contribuindo em um projeto Web3 com TypeScript, JavaScript e Chakra UI. No dia a dia, colaboro com uma equipe de 11 dev's, utilizando Git para versionar o código por meio de forks, commits e pull requests. Juntos, criamos novas funcionalidades, mantemos a documentação atualizada e refatoramos o código sempre que necessário. Também estou desenvolvendo um app para controle de finanças, que ainda está no começo, mas tem sido um ótimo espaço para me aprofundar em validações, implementar testes e dar continuidade ao projeto de forma autônoma e prática.
                   </p>
 
-                  <div className="links-resume">
-
-                    <a href="./src/pdf/cv-mtlouzada.pdf" target="_blank" className="btn has-before">
-
-                      <span className="span">VER CURRÍCULO</span>
-
-                      {/* <ion-icon name="download-outline" aria-hidden="true"></ion-icon> */}
-
-
-                    </a>
-
-
-
-
-
-
-                  </div>
-
-
-
-
+           
                 </div>
-
-
-
-
-
-
-
               </div>
+
             </section>
             <section id="projetos" className="section blog fade-in" aria-labelledby="blog-label">
               <div className="container">
