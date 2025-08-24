@@ -1,9 +1,6 @@
 # ⚠️ Refactoring ⚠️
 ### Meu Portfólio
 
-![profile-backgroundBR](https://github.com/user-attachments/assets/8eb41d91-4ae5-4a6b-be7a-2904a72a4960)
-
- [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](http://shields.io/)
 
 _Leia isso em outra lingua:_ 🇺🇸 [_English_](./src/language/README-enUS.md) ⚪🔵
 
