@@ -25,8 +25,6 @@ Design minimalista com tema claro/escuro, animações suaves e layout totalmente
 
 ### Responsivo
 
-<img src="docs/screenshots/mobile-dark.png" alt="Mobile" width="240" />
-
 </div>
 
 ---
