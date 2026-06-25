@@ -23,13 +23,9 @@ Design minimalista com tema claro/escuro, animações suaves e layout totalmente
 
 <div align="center">
 
-### Página completa
-
-<img src="docs/screenshots/desktop-dark.png" alt="Página completa — tema escuro" width="600" />
-
 ### Responsivo
 
-<img src="docs/screenshots/mobile-light.png" alt="Mobile — claro" width="240" />&nbsp;&nbsp;<img src="docs/screenshots/mobile-dark.png" alt="Mobile — escuro" width="240" />
+<img src="docs/screenshots/mobile-dark.png" alt="Mobile" width="240" />
 
 </div>
 
