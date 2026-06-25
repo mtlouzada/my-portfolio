@@ -1,36 +1,127 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
 
-## Getting Started
+# Matheus Louzada — Portfólio
 
-First, run the development server:
+Portfólio pessoal de um **desenvolvedor fullstack .NET / React**, construído com Next.js 14.
+Design minimalista com tema claro/escuro, animações suaves e layout totalmente responsivo.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+![Next.js](https://img.shields.io/badge/Next.js-14-000000?logo=nextdotjs&logoColor=white)
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?logo=tailwindcss&logoColor=white)
+![pnpm](https://img.shields.io/badge/pnpm-F69220?logo=pnpm&logoColor=white)
+
+</div>
+
+---
+
+## ✨ Preview
+
+| ☀️ Tema claro | 🌙 Tema escuro |
+| :---: | :---: |
+| ![Tela inicial — claro](docs/screenshots/hero-light.png) | ![Tela inicial — escuro](docs/screenshots/hero-dark.png) |
+
+<div align="center">
+
+### Página completa
+
+<img src="docs/screenshots/desktop-dark.png" alt="Página completa — tema escuro" width="600" />
+
+### Responsivo
+
+<img src="docs/screenshots/mobile-light.png" alt="Mobile — claro" width="240" />&nbsp;&nbsp;<img src="docs/screenshots/mobile-dark.png" alt="Mobile — escuro" width="240" />
+
+</div>
+
+---
+
+## 🚀 Funcionalidades
+
+- 🌗 **Tema claro/escuro** — alternância com persistência no `localStorage` e detecção da preferência do sistema, sem flash de tela na carga
+- 🎬 **Animações de reveal** — seções surgem suavemente conforme o scroll (`IntersectionObserver`), respeitando `prefers-reduced-motion`
+- 📱 **Totalmente responsivo** — do desktop ao mobile, com menu hambúrguer
+- ⚡ **Imagens otimizadas** — via `next/image`
+- 🔤 **Tipografia Geist** — carregada localmente com `next/font` (zero layout shift)
+- 🎨 **Design tokens em CSS variables** — paleta consistente entre os temas
+
+---
+
+## 🛠️ Stack
+
+| Camada | Tecnologia |
+| --- | --- |
+| Framework | [Next.js 14](https://nextjs.org) (App Router) |
+| UI | [React 18](https://react.dev) + [TypeScript](https://www.typescriptlang.org/) |
+| Estilo | [Tailwind CSS](https://tailwindcss.com) + CSS variables |
+| Fontes | [Geist](https://vercel.com/font) (Sans + Mono) |
+| Gerenciador | [pnpm](https://pnpm.io) |
+
+---
+
+## 📂 Estrutura
+
+```
+my-portfolio/
+├── app/
+│   ├── layout.tsx        # Layout raiz + script de tema (anti-flash)
+│   ├── page.tsx          # Composição das seções
+│   ├── globals.css       # Tokens de tema (claro/escuro) e estilos base
+│   └── fonts/            # Geist Sans / Mono (.woff)
+├── components/
+│   ├── Navbar.tsx        # Navegação + toggle de tema + menu mobile
+│   ├── Hero.tsx          # Apresentação
+│   ├── About.tsx         # Sobre + skills
+│   ├── Projects.tsx      # Projetos em destaque + autorais
+│   ├── Contact.tsx       # Chamada de contato
+│   ├── Footer.tsx
+│   └── Reveal.tsx        # Wrapper de animação no scroll
+├── lib/
+│   └── useTheme.ts       # Hook de alternância de tema
+└── public/imgs/          # Imagens e fotos
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🧑‍💻 Rodando localmente
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+> Requer [Node.js 18+](https://nodejs.org) e [pnpm](https://pnpm.io/installation).
 
-## Learn More
+```bash
+# 1. Clone o repositório
+git clone https://github.com/mtlouzada/my-portfolio.git
+cd my-portfolio
 
-To learn more about Next.js, take a look at the following resources:
+# 2. Instale as dependências
+pnpm install
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# 3. Inicie o servidor de desenvolvimento
+pnpm dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Abra [http://localhost:3000](http://localhost:3000) no navegador.
 
-## Deploy on Vercel
+### Outros comandos
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+pnpm build   # build de produção
+pnpm start   # roda o build de produção
+pnpm lint    # checagem de lint
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🌐 Deploy
+
+O deploy recomendado é na [**Vercel**](https://vercel.com/new) (criadores do Next.js): basta importar o repositório — o framework e o pnpm são detectados automaticamente, e cada `push` na `master` publica uma nova versão.
+
+---
+
+## 📫 Contato
+
+- **E-mail:** louzoshi.eth@gmail.com
+- **GitHub:** [@mtlouzada](https://github.com/mtlouzada)
+- **LinkedIn:** [matheus-louzadaa](https://www.linkedin.com/in/matheus-louzadaa/)
+
+<div align="center">
+<sub>Feito com Next.js · Matheus Louzada — Brasil</sub>
+</div>
