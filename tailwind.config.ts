@@ -12,14 +12,21 @@ const config: Config = {
         sans: ["var(--font-geist-sans)", "sans-serif"],
         mono: ["var(--font-geist-mono)", "monospace"],
       },
-      keyframes: {
-        fadeIn: {
-          "0%": { opacity: "0", transform: "translateY(16px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
-        },
+      colors: {
+        bg: "var(--bg)",
+        elev: "var(--bg-elev)",
+        card: "var(--bg-card)",
+        fg: "var(--fg)",
+        muted: "var(--fg-muted)",
+        line: "var(--border)",
+        accent: "var(--accent)",
+        "accent-soft": "var(--accent-soft)",
       },
-      animation: {
-        "fade-in": "fadeIn 0.7s ease forwards",
+      boxShadow: {
+        elevated: "var(--shadow)",
+      },
+      borderRadius: {
+        pill: "980px",
       },
     },
   },

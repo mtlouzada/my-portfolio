@@ -1,67 +1,71 @@
 import Image from "next/image";
+import Reveal from "./Reveal";
 
 export default function Hero() {
   return (
     <section
-      id="sobre"
-      className="min-h-screen pt-14 flex items-center border-b border-[#1a1a1a]"
+      id="top"
+      className="max-w-[1120px] mx-auto px-6 pt-40 pb-28 text-center"
     >
-      <div className="max-w-5xl mx-auto px-6 w-full py-24">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          {/* Text */}
-          <div className="animate-fade-in">
-            <span className="section-label">Desenvolvedor Fullstack</span>
+      <Reveal delay={0.04}>
+        <p className="label-mono">Desenvolvedor Fullstack</p>
+      </Reveal>
 
-            <h1 className="text-6xl md:text-8xl font-black uppercase leading-none tracking-tighter text-white mb-10">
-              Matheus
-              <br />
-              Louzada
-            </h1>
+      <Reveal delay={0.1} className="mt-7">
+        <h1 className="text-[clamp(52px,9vw,116px)] leading-[1.01] tracking-[-0.04em] font-semibold text-fg">
+          Matheus
+          <br />
+          Louzada
+        </h1>
+      </Reveal>
 
-            <div className="divider mb-10" />
+      <Reveal delay={0.18} className="mt-8">
+        <p className="max-w-[660px] mx-auto text-[clamp(17px,2.2vw,21px)] leading-[1.55] text-muted text-pretty">
+          Fullstack .NET com C# e ASP.NET Core no back-end — APIs REST
+          escaláveis com SQL Server e Entity Framework. React e TypeScript no
+          front-end, cobrindo o fluxo completo da interface à API e ao banco.
+        </p>
+      </Reveal>
 
-            <p className="text-[#777] text-sm leading-relaxed max-w-md">
-              Fullstack .NET com C# e ASP.NET Core — APIs REST escaláveis com
-              SQL Server e Entity Framework. No front-end, React e TypeScript
-              com fluxo completo UI → API → Banco. Ambientes ágeis, testes
-              automatizados e CI/CD.
-            </p>
-
-            <div className="flex flex-wrap gap-4 mt-10">
-              <a
-                href="https://github.com/mtlouzada"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline"
-              >
-                GitHub ↗
-              </a>
-              <a
-                href="https://www.linkedin.com/in/matheus-louzadaa/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline"
-              >
-                LinkedIn ↗
-              </a>
-            </div>
-          </div>
-
-          {/* Photo */}
-          <div className="flex justify-center md:justify-end animate-fade-in">
-            <div className="relative w-60 h-60 md:w-72 md:h-72">
-              <Image
-                src="/imgs/newphoto.jpg"
-                alt="Matheus Louzada"
-                fill
-                className="rounded-full object-cover grayscale"
-                priority
-              />
-              <div className="absolute inset-0 rounded-full border border-[#222]" />
-            </div>
-          </div>
+      <Reveal delay={0.26} className="mt-10">
+        <div className="flex flex-wrap gap-3.5 justify-center max-[480px]:flex-col max-[480px]:items-stretch">
+          <a
+            href="#projetos"
+            className="px-7 py-3.5 rounded-pill bg-accent text-white font-medium text-[15px] transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-8px_rgba(91,91,214,0.55)]"
+          >
+            Ver projetos
+          </a>
+          <a
+            href="https://github.com/mtlouzada"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-[22px] py-3.5 rounded-pill border border-line text-fg text-[15px] transition-all duration-300 hover:bg-elev hover:-translate-y-0.5"
+          >
+            GitHub ↗
+          </a>
+          <a
+            href="https://www.linkedin.com/in/matheus-louzadaa/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-[22px] py-3.5 rounded-pill border border-line text-fg text-[15px] transition-all duration-300 hover:bg-elev hover:-translate-y-0.5"
+          >
+            LinkedIn ↗
+          </a>
         </div>
-      </div>
+      </Reveal>
+
+      <Reveal delay={0.34} className="mt-20 max-w-[540px] mx-auto">
+        <div className="relative w-full aspect-[4/5] rounded-[28px] overflow-hidden shadow-elevated">
+          <Image
+            src="/imgs/newphoto.jpg"
+            alt="Matheus Louzada"
+            fill
+            priority
+            sizes="(max-width: 600px) 100vw, 540px"
+            className="object-cover"
+          />
+        </div>
+      </Reveal>
     </section>
   );
 }

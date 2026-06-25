@@ -2,39 +2,88 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --bg: #ffffff;
+  --bg-elev: #f5f5f7;
+  --bg-card: #ffffff;
+  --fg: #1d1d1f;
+  --fg-muted: #6e6e73;
+  --border: rgba(0, 0, 0, 0.09);
+  --nav-bg: rgba(255, 255, 255, 0.72);
+  --accent: #5b5bd6;
+  --accent-soft: rgba(91, 91, 214, 0.1);
+  --shadow: 0 18px 50px -16px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] {
+  --bg: #0a0a0b;
+  --bg-elev: #151517;
+  --bg-card: #141416;
+  --fg: #f5f5f7;
+  --fg-muted: #8a8a90;
+  --border: rgba(255, 255, 255, 0.1);
+  --nav-bg: rgba(10, 10, 11, 0.7);
+  --accent: #8b8bf5;
+  --accent-soft: rgba(139, 139, 245, 0.16);
+  --shadow: 0 22px 60px -16px rgba(0, 0, 0, 0.65);
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    transition: background 0.45s ease, color 0.45s ease;
+  }
+
+  ::selection {
+    background: rgba(91, 91, 214, 0.18);
+  }
+
   ::-webkit-scrollbar {
-    width: 4px;
+    width: 6px;
   }
   ::-webkit-scrollbar-track {
     background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: #2a2a2a;
+    background: var(--border);
     border-radius: 4px;
   }
 }
 
 @layer components {
-  .section-label {
-    @apply text-xs tracking-[0.3em] uppercase text-[#555] font-mono mb-6 block;
+  .label-mono {
+    @apply font-mono text-[13px] tracking-[0.04em] text-accent;
   }
 
-  .divider {
-    @apply w-full h-px bg-[#1a1a1a];
+  .pill-outline {
+    @apply rounded-pill border border-line text-fg transition-colors duration-200;
   }
+}
 
-  .btn-outline {
-    @apply border border-[#2a2a2a] px-6 py-3 text-xs tracking-widest uppercase
-           text-[#aaa] hover:border-white hover:text-white
-           transition-all duration-200 inline-flex items-center gap-2;
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
-
-  .card {
-    @apply border border-[#1a1a1a] hover:border-[#333] transition-colors duration-300;
+  html {
+    scroll-behavior: auto;
   }
 }

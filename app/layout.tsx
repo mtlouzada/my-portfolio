@@ -18,15 +18,21 @@ export const metadata: Metadata = {
   description: "Desenvolvedor Fullstack — .NET, C#, React, TypeScript",
 };
 
+// Set the theme before paint to avoid a flash of the wrong color scheme.
+const themeScript = `(function(){try{var t=localStorage.getItem('ml-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#080808] text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-bg text-fg font-sans overflow-x-hidden`}
       >
         {children}
       </body>
