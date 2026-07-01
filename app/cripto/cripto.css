@@ -1,0 +1,376 @@
+/* ============================================================
+   CRIPTO WORLD — scoped brutalist / retro-OS theme
+   Everything is namespaced under .cripto-root so it never
+   leaks into the corporate site. Theme-independent on purpose
+   (does NOT follow the light/dark toggle).
+   ============================================================ */
+
+.cripto-root {
+  --c-paper: #efe8d8;
+  --c-paper-2: #e4dbc6;
+  --c-ink: #16130d;
+  --c-ink-soft: #4b4638;
+  --c-red: #e8482a;
+  --c-teal: #1e5f54;
+  --c-lime: #b7e51f;
+  --c-blue: #2f4fd6;
+  --c-white: #f5f2e9;
+
+  --c-serif: Georgia, "Times New Roman", serif;
+  --c-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --c-sans: var(--font-geist-sans), "Helvetica Neue", sans-serif;
+
+  position: relative;
+  min-height: 100vh;
+  background: var(--c-paper);
+  color: var(--c-ink);
+  font-family: var(--c-sans);
+  overflow: hidden;
+}
+
+/* film grain / paper texture + scanline overlay */
+.cripto-root::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.035) 0px,
+    rgba(0, 0, 0, 0.035) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+  animation: c-scan 8s linear infinite;
+}
+
+@keyframes c-scan {
+  to {
+    background-position: 0 6px;
+  }
+}
+
+/* ---------- typography helpers ---------- */
+.cripto-root .c-display {
+  font-family: var(--c-sans);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+.cripto-root .c-serif {
+  font-family: var(--c-serif);
+  font-style: italic;
+  font-weight: 500;
+}
+.cripto-root .c-mono {
+  font-family: var(--c-mono);
+}
+.cripto-root .c-label {
+  font-family: var(--c-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-ink-soft);
+}
+
+/* ---------- retro window chrome ---------- */
+.cripto-root .win {
+  border: 2px solid var(--c-ink);
+  background: var(--c-paper);
+  box-shadow: 5px 5px 0 var(--c-ink);
+  overflow: hidden;
+}
+.cripto-root .win-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 5px 8px;
+  background: var(--win-accent, var(--c-ink));
+  color: var(--c-white);
+  border-bottom: 2px solid var(--c-ink);
+  font-family: var(--c-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  user-select: none;
+}
+.cripto-root .win-ctrls {
+  display: flex;
+  gap: 4px;
+}
+.cripto-root .win-ctrls i {
+  width: 11px;
+  height: 11px;
+  display: inline-block;
+  border: 1.5px solid var(--c-white);
+  background: transparent;
+}
+.cripto-root .win-ctrls i:last-child {
+  background: var(--c-white);
+}
+
+/* ---------- buttons ---------- */
+.cripto-root .c-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--c-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 12px 20px;
+  border: 2px solid var(--c-ink);
+  background: var(--c-paper);
+  color: var(--c-ink);
+  box-shadow: 3px 3px 0 var(--c-ink);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.2s ease;
+  cursor: pointer;
+}
+.cripto-root .c-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--c-ink);
+}
+.cripto-root .c-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--c-ink);
+}
+.cripto-root .c-btn-red {
+  background: var(--c-red);
+  color: var(--c-white);
+}
+.cripto-root .c-btn-lime {
+  background: var(--c-lime);
+  color: var(--c-ink);
+}
+
+/* ---------- tag pills ---------- */
+.cripto-root .c-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--c-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 11px;
+  border: 1.5px solid var(--c-ink);
+  border-radius: 999px;
+  background: var(--c-paper);
+}
+
+/* ---------- marquee ticker ---------- */
+.cripto-root .ticker {
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+}
+.cripto-root .ticker-track {
+  display: inline-flex;
+  flex-shrink: 0;
+  min-width: 100%;
+  align-items: center;
+  animation: c-marquee var(--dur, 26s) linear infinite;
+}
+.cripto-root .ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+.cripto-root .ticker-rev .ticker-track {
+  animation-direction: reverse;
+}
+@keyframes c-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- halftone dot field ---------- */
+.cripto-root .halftone {
+  background-image: radial-gradient(var(--dot, var(--c-ink)) 22%, transparent 24%);
+  background-size: 11px 11px;
+}
+
+/* ---------- animated hero shapes ---------- */
+.cripto-root .spin-slow {
+  animation: c-spin 18s linear infinite;
+}
+@keyframes c-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.cripto-root .float-y {
+  animation: c-float 6s ease-in-out infinite;
+}
+@keyframes c-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+.cripto-root .pulse-dot {
+  animation: c-pulse 3.4s ease-in-out infinite;
+}
+@keyframes c-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.14);
+    opacity: 0.82;
+  }
+}
+
+/* blinking cursor */
+.cripto-root .blink::after {
+  content: "_";
+  animation: c-blink 1.05s steps(1) infinite;
+  color: var(--c-red);
+}
+@keyframes c-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* glitch word */
+.cripto-root .glitch {
+  position: relative;
+  color: var(--c-red);
+}
+.cripto-root .glitch::before,
+.cripto-root .glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+}
+.cripto-root .glitch::before {
+  color: var(--c-blue);
+  animation: c-glitch-a 3s infinite steps(2);
+}
+.cripto-root .glitch::after {
+  color: var(--c-teal);
+  animation: c-glitch-b 2.4s infinite steps(2);
+}
+@keyframes c-glitch-a {
+  0%,
+  88%,
+  100% {
+    clip-path: inset(0 0 100% 0);
+    transform: translate(0);
+  }
+  90% {
+    clip-path: inset(0 0 55% 0);
+    transform: translate(-3px, -1px);
+  }
+  94% {
+    clip-path: inset(30% 0 40% 0);
+    transform: translate(3px, 1px);
+  }
+}
+@keyframes c-glitch-b {
+  0%,
+  86%,
+  100% {
+    clip-path: inset(100% 0 0 0);
+    transform: translate(0);
+  }
+  92% {
+    clip-path: inset(60% 0 10% 0);
+    transform: translate(3px, 1px);
+  }
+  96% {
+    clip-path: inset(45% 0 35% 0);
+    transform: translate(-3px, 0);
+  }
+}
+
+/* project / contribution row sweep */
+.cripto-root .row-link {
+  position: relative;
+  isolation: isolate;
+}
+.cripto-root .row-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--row-accent, var(--c-ink));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cripto-root .row-link:hover::before {
+  transform: scaleX(1);
+}
+.cripto-root .row-arrow {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cripto-root .row-link:hover .row-arrow {
+  transform: translateX(8px);
+}
+
+/* nft card hover glow */
+.cripto-root .nft-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.cripto-root .nft-card:hover {
+  transform: translate(-3px, -3px) rotate(-0.6deg);
+  box-shadow: 8px 8px 0 var(--c-ink);
+}
+
+/* form fields */
+.cripto-root .c-field {
+  width: 100%;
+  background: var(--c-white);
+  border: 2px solid var(--c-ink);
+  padding: 10px 12px;
+  font-family: var(--c-mono);
+  font-size: 13px;
+  color: var(--c-ink);
+  outline: none;
+}
+.cripto-root .c-field:focus {
+  box-shadow: inset 3px 3px 0 rgba(0, 0, 0, 0.12);
+}
+.cripto-root .c-field::placeholder {
+  color: var(--c-ink-soft);
+  opacity: 0.7;
+}
+
+/* entrance reveal (scoped variant, works with the shared Reveal component) */
+.cripto-root .reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cripto-root .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cripto-root *,
+  .cripto-root *::before,
+  .cripto-root *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .cripto-root .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

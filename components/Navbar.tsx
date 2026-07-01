@@ -34,32 +34,58 @@ function MoonIcon() {
   );
 }
 
+function Logo() {
+  return (
+    <Link href="#top" aria-label="Início" className="group flex items-center gap-2.5">
+      <span className="grid place-items-center w-[34px] h-[34px] rounded-[11px] bg-fg text-bg font-bold text-[13px] tracking-[-0.03em] transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-105">
+        ML
+      </span>
+      <span className="hidden sm:block font-semibold text-[15px] tracking-[-0.01em] text-fg">
+        Matheus Louzada
+      </span>
+    </Link>
+  );
+}
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const { theme, toggle } = useTheme();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-line bg-[var(--nav-bg)] backdrop-blur-xl backdrop-saturate-150">
-      <div className="max-w-[1120px] mx-auto px-6 h-[54px] flex items-center justify-between gap-4">
-        <a
-          href="#top"
-          className="font-mono text-lg tracking-tight text-fg hover:opacity-70 transition-opacity"
-        >
-          ⌐◨-◨
-        </a>
+      <div className="max-w-[1120px] mx-auto px-6 h-[58px] grid grid-cols-[1fr_auto_1fr] items-center gap-4">
+        {/* left — logo */}
+        <div className="flex justify-start min-w-0">
+          <Logo />
+        </div>
 
-        <div className="flex items-center gap-1.5">
+        {/* center — nav links (stays in place; content hidden on mobile) */}
+        <div className="flex justify-center">
           <div className="hidden md:flex items-center gap-0.5">
             {links.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
-                className="px-[13px] py-2 rounded-pill text-sm text-muted hover:text-fg hover:bg-elev transition-colors"
+                className="px-[14px] py-2 rounded-pill text-[14px] text-muted hover:text-fg hover:bg-elev transition-colors"
               >
                 {l.label}
               </Link>
             ))}
           </div>
+        </div>
+
+        {/* right — actions */}
+        <div className="flex justify-end items-center gap-2">
+          <Link
+            href="/cripto"
+            className="group hidden sm:inline-flex items-center gap-2 pl-3 pr-3.5 py-2 rounded-pill text-[13.5px] font-medium text-accent bg-accent-soft border border-transparent hover:border-accent/30 transition-colors"
+          >
+            <span className="relative flex w-1.5 h-1.5">
+              <span className="absolute inline-flex w-full h-full rounded-full bg-accent opacity-60 animate-ping" />
+              <span className="relative inline-flex w-1.5 h-1.5 rounded-full bg-accent" />
+            </span>
+            Cripto
+          </Link>
 
           <button
             onClick={toggle}
@@ -71,7 +97,7 @@ export default function Navbar() {
 
           <a
             href="mailto:louzoshi.eth@gmail.com"
-            className="hidden md:block px-4 py-2 rounded-pill bg-fg text-bg text-sm font-medium hover:opacity-80 transition-opacity"
+            className="hidden md:inline-flex px-[18px] py-2 rounded-pill bg-fg text-bg text-[14px] font-medium hover:opacity-80 transition-opacity"
           >
             Email
           </a>
@@ -108,6 +134,21 @@ export default function Navbar() {
               {l.label}
             </Link>
           ))}
+          <Link
+            href="/cripto"
+            onClick={() => setOpen(false)}
+            className="px-3 py-3.5 rounded-xl text-[17px] font-medium text-accent bg-accent-soft mt-1 inline-flex items-center gap-2.5"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+            Cripto ↗
+          </Link>
+          <a
+            href="mailto:louzoshi.eth@gmail.com"
+            onClick={() => setOpen(false)}
+            className="px-3 py-3.5 rounded-xl text-[17px] font-medium text-bg bg-fg mt-1 text-center"
+          >
+            Email
+          </a>
         </div>
       )}
     </nav>
