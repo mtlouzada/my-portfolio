@@ -7,7 +7,7 @@ export default function Nfts() {
   return (
     <section
       id="nfts"
-      className="scroll-mt-24 border-b-2 border-[var(--c-ink)] bg-[var(--c-ink)] text-[var(--c-white)]"
+      className="scroll-mt-24 border-b-2 border-[var(--c-ink)] bg-[var(--c-void)] text-[var(--c-white)]"
     >
       <div className="max-w-[1160px] mx-auto px-5 py-20">
         <Reveal className="flex flex-wrap items-end justify-between gap-4 mb-12">
@@ -25,7 +25,9 @@ export default function Nfts() {
         </Reveal>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
-          {nfts.map((nft, i) => (
+          {nfts.map((nft, i) => {
+            const bright = nft.bg === "--c-lime";
+            return (
             <Reveal key={nft.name} delay={i * 0.06}>
               <div className="nft-card border-2 border-[var(--c-white)] bg-[var(--c-paper)] text-[var(--c-ink)] shadow-[5px_5px_0_var(--c-white)]">
                 <div
@@ -36,10 +38,20 @@ export default function Nfts() {
                     className="halftone absolute inset-0 opacity-30"
                     style={{ ["--dot" as string]: "var(--c-ink)" }}
                   />
-                  <span className="absolute inset-0 grid place-items-center c-display text-[clamp(30px,7vw,56px)] text-[var(--c-white)] mix-blend-overlay">
+                  <span
+                    className={`absolute inset-0 grid place-items-center c-display text-[clamp(30px,7vw,56px)] ${
+                      bright
+                        ? "text-[var(--c-on-bright)] opacity-80"
+                        : "text-[var(--c-white)] mix-blend-overlay"
+                    }`}
+                  >
                     #{nft.tokenId}
                   </span>
-                  <span className="absolute top-2 left-2 c-mono text-[9px] tracking-[0.12em] text-[var(--c-white)]">
+                  <span
+                    className={`absolute top-2 left-2 c-mono text-[9px] tracking-[0.12em] ${
+                      bright ? "text-[var(--c-on-bright)]" : "text-[var(--c-white)]"
+                    }`}
+                  >
                     {nft.collection.toUpperCase()}
                   </span>
                 </div>
@@ -53,7 +65,8 @@ export default function Nfts() {
                 </div>
               </div>
             </Reveal>
-          ))}
+            );
+          })}
         </div>
 
         <Reveal delay={0.1} className="mt-10">

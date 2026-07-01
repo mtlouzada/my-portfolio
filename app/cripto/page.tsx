@@ -16,7 +16,7 @@ export default function CriptoPage() {
       <main>
         <CriptoHero />
 
-        <div className="bg-[var(--c-lime)] text-[var(--c-ink)] border-b-2 border-[var(--c-ink)] py-2.5">
+        <div className="bg-[var(--c-lime)] text-[var(--c-on-bright)] border-b-2 border-[var(--c-ink)] py-2.5">
           <Ticker items={services} duration={28} sep="+" />
         </div>
 

@@ -1,8 +1,9 @@
 /* ============================================================
    CRIPTO WORLD — scoped brutalist / retro-OS theme
    Everything is namespaced under .cripto-root so it never
-   leaks into the corporate site. Theme-independent on purpose
-   (does NOT follow the light/dark toggle).
+   leaks into the corporate site. Has its OWN dark mode via
+   `html[data-ctheme="dark"]` (independent from the main site's
+   theme; toggled inside /cripto and stored as `cripto-theme`).
    ============================================================ */
 
 .cripto-root {
@@ -14,7 +15,10 @@
   --c-teal: #1e5f54;
   --c-lime: #b7e51f;
   --c-blue: #2f4fd6;
-  --c-white: #f5f2e9;
+  --c-void: #16130d; /* sections that stay dark in both themes */
+  --c-white: #f5f2e9; /* text on dark/saturated accents (red/teal/blue/void) */
+  --c-on-bright: #141109; /* text on bright accents (lime) — dark in both themes */
+  --c-field-bg: #fbf8ef; /* form input surface (theme-aware) */
 
   --c-serif: Georgia, "Times New Roman", serif;
   --c-mono: var(--font-geist-mono), ui-monospace, monospace;
@@ -26,6 +30,22 @@
   color: var(--c-ink);
   font-family: var(--c-sans);
   overflow: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ---------- dark mode (scoped, independent toggle) ---------- */
+html[data-ctheme="dark"] .cripto-root {
+  --c-paper: #16130f;
+  --c-paper-2: #201b15;
+  --c-ink: #ece3d1;
+  --c-ink-soft: #9c927e;
+  --c-void: #0c0a07;
+  --c-red: #ff5c3f;
+  --c-teal: #33a08b;
+  --c-lime: #a7d42a;
+  --c-blue: #5c73f2;
+  --c-white: #f5f2e9;
+  --c-field-bg: #100d09;
 }
 
 /* film grain / paper texture + scanline overlay */
@@ -51,6 +71,26 @@
   to {
     background-position: 0 6px;
   }
+}
+
+/* lighter scanlines on dark so the texture stays visible */
+html[data-ctheme="dark"] .cripto-root::before {
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.022) 0px,
+    rgba(255, 255, 255, 0.022) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: screen;
+  opacity: 0.6;
+}
+
+/* window bodies + fields transition smoothly on theme change */
+.cripto-root .win,
+.cripto-root .c-field {
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 /* ---------- typography helpers ---------- */
@@ -90,7 +130,7 @@
   justify-content: space-between;
   gap: 10px;
   padding: 5px 8px;
-  background: var(--win-accent, var(--c-ink));
+  background: var(--win-accent, var(--c-void));
   color: var(--c-white);
   border-bottom: 2px solid var(--c-ink);
   font-family: var(--c-mono);
@@ -145,7 +185,7 @@
 }
 .cripto-root .c-btn-lime {
   background: var(--c-lime);
-  color: var(--c-ink);
+  color: var(--c-on-bright);
 }
 
 /* ---------- tag pills ---------- */
@@ -334,7 +374,7 @@
 /* form fields */
 .cripto-root .c-field {
   width: 100%;
-  background: var(--c-white);
+  background: var(--c-field-bg);
   border: 2px solid var(--c-ink);
   padding: 10px 12px;
   font-family: var(--c-mono);

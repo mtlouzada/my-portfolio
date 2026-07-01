@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useCriptoTheme } from "@/lib/useCriptoTheme";
 
 const links = [
   { label: "Builds", href: "#builds" },
@@ -10,13 +11,50 @@ const links = [
   { label: "Contato", href: "#contato" },
 ];
 
+function SunIcon() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+      <circle cx="12" cy="12" r="4" />
+      <line x1="12" y1="2" x2="12" y2="4.5" />
+      <line x1="12" y1="19.5" x2="12" y2="22" />
+      <line x1="2" y1="12" x2="4.5" y2="12" />
+      <line x1="19.5" y1="12" x2="22" y2="12" />
+      <line x1="4.9" y1="4.9" x2="6.7" y2="6.7" />
+      <line x1="17.3" y1="17.3" x2="19.1" y2="19.1" />
+      <line x1="4.9" y1="19.1" x2="6.7" y2="17.3" />
+      <line x1="17.3" y1="6.7" x2="19.1" y2="4.9" />
+    </svg>
+  );
+}
+
+function MoonIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24">
+      <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z" fill="currentColor" />
+    </svg>
+  );
+}
+
+function ThemeToggle({ className = "" }: { className?: string }) {
+  const { theme, toggle } = useCriptoTheme();
+  return (
+    <button
+      onClick={toggle}
+      aria-label="Alternar tema do modo onchain"
+      className={`w-9 h-9 shrink-0 border-2 border-[var(--c-ink)] bg-[var(--c-paper)] text-[var(--c-ink)] grid place-items-center hover:-translate-y-0.5 transition-transform ${className}`}
+    >
+      {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+    </button>
+  );
+}
+
 export default function CriptoNav() {
   const [open, setOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50">
       {/* fake OS menu bar */}
-      <div className="c-mono text-[10.5px] tracking-[0.06em] bg-[var(--c-ink)] text-[var(--c-white)] px-3 py-1 flex items-center gap-4">
+      <div className="c-mono text-[10.5px] tracking-[0.06em] bg-[var(--c-void)] text-[var(--c-white)] px-3 py-1 flex items-center gap-4">
         <span className="opacity-70">File</span>
         <span className="opacity-70">Edit</span>
         <span className="opacity-70">View</span>
@@ -44,21 +82,25 @@ export default function CriptoNav() {
                 {l.label}
               </a>
             ))}
+            <ThemeToggle className="ml-2" />
             <Link
               href="/"
-              className="c-mono text-[11px] tracking-[0.1em] uppercase px-3 py-2 border-2 border-[var(--c-ink)] ml-2 bg-[var(--c-lime)] hover:-translate-y-0.5 transition-transform"
+              className="c-mono text-[11px] tracking-[0.1em] uppercase px-3 py-2 border-2 border-[var(--c-ink)] ml-1 bg-[var(--c-lime)] text-[var(--c-on-bright)] hover:-translate-y-0.5 transition-transform"
             >
               ← Portfólio
             </Link>
           </div>
 
-          <button
-            onClick={() => setOpen((v) => !v)}
-            aria-label="Menu"
-            className="md:hidden w-9 h-9 border-2 border-[var(--c-ink)] flex items-center justify-center bg-[var(--c-paper)]"
-          >
-            <span className="c-mono text-sm">{open ? "✕" : "≡"}</span>
-          </button>
+          <div className="md:hidden flex items-center gap-2">
+            <ThemeToggle />
+            <button
+              onClick={() => setOpen((v) => !v)}
+              aria-label="Menu"
+              className="w-9 h-9 border-2 border-[var(--c-ink)] flex items-center justify-center bg-[var(--c-paper)] text-[var(--c-ink)]"
+            >
+              <span className="c-mono text-sm">{open ? "✕" : "≡"}</span>
+            </button>
+          </div>
         </div>
 
         {open && (
@@ -76,7 +118,7 @@ export default function CriptoNav() {
             <Link
               href="/"
               onClick={() => setOpen(false)}
-              className="c-mono text-[13px] tracking-[0.08em] uppercase py-2.5 mt-1 border-2 border-[var(--c-ink)] bg-[var(--c-lime)] text-center"
+              className="c-mono text-[13px] tracking-[0.08em] uppercase py-2.5 mt-1 border-2 border-[var(--c-ink)] bg-[var(--c-lime)] text-[var(--c-on-bright)] text-center"
             >
               ← Voltar ao portfólio
             </Link>

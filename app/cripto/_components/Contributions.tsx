@@ -33,23 +33,29 @@ export default function Contributions() {
                 rel="noopener noreferrer"
                 className="row-link group flex items-center gap-4 md:gap-8 py-5 md:py-6 px-2 md:px-4 border-b-2 border-[var(--c-ink)]"
                 style={
-                  { ["--row-accent" as string]: `var(${c.accent})` } as CSSProperties
+                  {
+                    ["--row-accent" as string]: `var(${c.accent})`,
+                    ["--row-fg" as string]:
+                      c.accent === "--c-lime"
+                        ? "var(--c-on-bright)"
+                        : "var(--c-white)",
+                  } as CSSProperties
                 }
               >
-                <span className="c-mono text-[11px] w-7 shrink-0 group-hover:text-[var(--c-white)] transition-colors">
+                <span className="c-mono text-[11px] w-7 shrink-0 group-hover:text-[var(--row-fg)] transition-colors">
                   {c.index}
                 </span>
                 <span
-                  className={`flex-1 min-w-0 text-[clamp(22px,4vw,42px)] leading-none group-hover:text-[var(--c-white)] transition-colors ${fontClass[c.font]}`}
+                  className={`flex-1 min-w-0 text-[clamp(22px,4vw,42px)] leading-none group-hover:text-[var(--row-fg)] transition-colors ${fontClass[c.font]}`}
                 >
                   {c.title}
                 </span>
-                <span className="c-mono text-[10px] tracking-[0.1em] uppercase text-right text-[var(--c-ink-soft)] group-hover:text-[var(--c-white)] transition-colors hidden sm:block">
+                <span className="c-mono text-[10px] tracking-[0.1em] uppercase text-right text-[var(--c-ink-soft)] group-hover:text-[var(--row-fg)] transition-colors hidden sm:block">
                   {c.role}
                   <br />
                   {c.meta}
                 </span>
-                <span className="row-arrow c-mono text-lg group-hover:text-[var(--c-white)] transition-colors">
+                <span className="row-arrow c-mono text-lg group-hover:text-[var(--row-fg)] transition-colors">
                   ↗
                 </span>
               </a>

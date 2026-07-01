@@ -12,7 +12,7 @@ const footerItems = [
 
 export default function CriptoFooter() {
   return (
-    <footer className="bg-[var(--c-ink)] text-[var(--c-white)]">
+    <footer className="bg-[var(--c-void)] text-[var(--c-white)]">
       <div className="border-b-2 border-[var(--c-white)]/20 py-3">
         <Ticker items={footerItems} duration={30} sep="+" />
       </div>
