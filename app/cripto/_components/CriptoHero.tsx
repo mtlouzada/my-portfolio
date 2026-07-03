@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import EthLogo from "./EthLogo";
 
 export default function CriptoHero() {
   return (
@@ -86,9 +87,11 @@ export default function CriptoHero() {
               className="spin-slow w-[62%] aspect-square rounded-full border-2 border-dashed border-[var(--c-white)]/70"
             />
           </div>
-          {/* pulsing circle */}
+          {/* pulsing circle — Ethereum mark */}
           <div className="absolute inset-0 grid place-items-center">
-            <div className="pulse-dot w-[42%] aspect-square rounded-full bg-[var(--c-white)]" />
+            <div className="pulse-dot relative w-[46%] aspect-square rounded-full border-[3px] border-[var(--c-white)] bg-[var(--c-white)] grid place-items-center">
+              <EthLogo className="holo h-[58%] w-auto" />
+            </div>
           </div>
           {/* blue block */}
           <div className="absolute bottom-5 left-5 w-16 h-8 bg-[var(--c-blue)] border-2 border-[var(--c-ink)]" />

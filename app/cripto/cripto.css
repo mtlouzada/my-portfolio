@@ -270,6 +270,16 @@ html[data-ctheme="dark"] .cripto-root::before {
   }
 }
 
+/* holographic color shift (iridescent Ethereum mark) */
+.cripto-root .holo {
+  animation: c-holo 7s linear infinite;
+}
+@keyframes c-holo {
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+
 /* blinking cursor */
 .cripto-root .blink::after {
   content: "_";
