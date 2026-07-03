@@ -65,19 +65,19 @@ export const contributions: Contribution[] = [
   },
   {
     index: "03",
-    title: "Trust Finance",
-    meta: ".NET · REACT",
-    role: "Autor",
-    href: "https://github.com/mtlouzada/Trust-Finance",
+    title: "Gnars",
+    meta: "SKATE DAO · ONCHAIN",
+    role: "Contribuidor",
+    href: "https://gnars.com",
     accent: "--c-teal",
     font: "display",
   },
   {
     index: "04",
-    title: "bot-discord",
-    meta: "NODE · DISCORD API",
-    role: "Autor",
-    href: "https://github.com/mtlouzada/bot-discord",
+    title: "BuilderDAO",
+    meta: "NOUNS BUILDER · DAO",
+    role: "Contribuidor",
+    href: "https://nouns.build",
     accent: "--c-lime",
     font: "mono",
   },
@@ -122,3 +122,17 @@ export const disciplines = {
     ],
   },
 };
+
+// Onchain-native socials (used in the crypto contact terminal + footer).
+export const contactSocials = [
+  { label: "GitHub", handle: "mtlouzada", href: "https://github.com/mtlouzada" },
+  // TODO: confirmar handle do X (assumido: louzoshi)
+  { label: "X", handle: "@louzoshi", href: "https://x.com/louzoshi" },
+  // TODO: confirmar handle do Farcaster (assumido: louzoshi)
+  {
+    label: "Farcaster",
+    handle: "@louzoshi",
+    href: "https://warpcast.com/louzoshi",
+  },
+  { label: "PeakD", handle: "@louzoshi", href: "https://peakd.com/@louzoshi" },
+];

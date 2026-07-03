@@ -1,9 +1,10 @@
 import Link from "next/link";
 import Ticker from "./Ticker";
+import { contactSocials } from "../_data";
 
 const footerItems = [
   "LET'S BUILD SOMETHING",
-  "MATHEUSLOUZADAA@GMAIL.COM",
+  "SKATE OR DAO",
   "LOUZOSHI.ETH",
   "ART",
   "TECH",
@@ -24,22 +25,17 @@ export default function CriptoFooter() {
           <Link href="/" className="hover:text-[var(--c-lime)] transition-colors">
             ← Portfólio
           </Link>
-          <a
-            href="https://github.com/mtlouzada"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-[var(--c-lime)] transition-colors"
-          >
-            GitHub
-          </a>
-          <a
-            href="https://www.linkedin.com/in/matheus-louzadaa/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-[var(--c-lime)] transition-colors"
-          >
-            LinkedIn
-          </a>
+          {contactSocials.map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[var(--c-lime)] transition-colors"
+            >
+              {s.label}
+            </a>
+          ))}
         </div>
         <p className="c-mono text-[10px] tracking-[0.1em] text-[var(--c-white)]/50 w-full md:w-auto">
           © {new Date().getFullYear()} MATHEUS LOUZADA · ONCHAIN MODE
