@@ -96,10 +96,12 @@ export default function Navbar() {
           </button>
 
           <a
-            href="mailto:louzoshi.eth@gmail.com"
+            href="https://www.linkedin.com/in/matheus-louzadaa/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden md:inline-flex px-[18px] py-2 rounded-pill bg-fg text-bg text-[14px] font-medium hover:opacity-80 transition-opacity"
           >
-            Email
+            LinkedIn ↗
           </a>
 
           <button
@@ -143,11 +145,13 @@ export default function Navbar() {
             Cripto ↗
           </Link>
           <a
-            href="mailto:louzoshi.eth@gmail.com"
+            href="https://www.linkedin.com/in/matheus-louzadaa/"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setOpen(false)}
             className="px-3 py-3.5 rounded-xl text-[17px] font-medium text-bg bg-fg mt-1 text-center"
           >
-            Email
+            LinkedIn ↗
           </a>
         </div>
       )}
