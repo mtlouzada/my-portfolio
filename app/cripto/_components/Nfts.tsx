@@ -1,9 +1,16 @@
+"use client";
+
 import type { CSSProperties } from "react";
 import Reveal from "@/components/Reveal";
 import Window from "./Window";
 import { nfts } from "../_data";
+import { useLanguage } from "@/lib/useLanguage";
+import { criptoDict } from "../_i18n";
 
 export default function Nfts() {
+  const { lang } = useLanguage();
+  const t = criptoDict[lang].nfts;
+
   return (
     <section
       id="nfts"
@@ -13,14 +20,14 @@ export default function Nfts() {
         <Reveal className="flex flex-wrap items-end justify-between gap-4 mb-12">
           <div>
             <p className="c-label mb-3 !text-[var(--c-white)]/60">
-              [ 04 — wallet ]
+              {t.label}
             </p>
             <h2 className="c-display text-[clamp(30px,5vw,58px)]">
-              A galeria onchain.
+              {t.title}
             </h2>
           </div>
           <span className="c-tag !border-[var(--c-white)]/40 !bg-transparent !text-[var(--c-white)]/70">
-            ◆ dados de exemplo — plugar wallet
+            {t.sampleTag}
           </span>
         </Reveal>
 
@@ -76,9 +83,9 @@ export default function Nfts() {
             bodyClassName="p-5 bg-[var(--c-paper)] text-[var(--c-ink)]"
           >
             <p className="c-mono text-[12px] leading-[1.7]">
-              &gt; Esta grade usa dados de exemplo. Para exibir NFTs reais, ligue
-              a wallet <b>louzoshi.eth</b> a uma API (Alchemy / OpenSea / Zora) —
-              o layout já está pronto para receber os itens dinamicamente.
+              {t.notePre}
+              <b>{t.noteBold}</b>
+              {t.notePost}
             </p>
           </Window>
         </Reveal>

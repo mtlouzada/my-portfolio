@@ -1,15 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useCriptoTheme } from "@/lib/useCriptoTheme";
-
-const links = [
-  { label: "Builds", href: "#builds" },
-  { label: "O que faço", href: "#faco" },
-  { label: "NFTs", href: "#nfts" },
-  { label: "Contato", href: "#contato" },
-];
+import { useLanguage } from "@/lib/useLanguage";
+import { criptoDict } from "../_i18n";
 
 function SunIcon() {
   return (
@@ -35,12 +30,12 @@ function MoonIcon() {
   );
 }
 
-function ThemeToggle({ className = "" }: { className?: string }) {
+function ThemeToggle({ label, className = "" }: { label: string; className?: string }) {
   const { theme, toggle } = useCriptoTheme();
   return (
     <button
       onClick={toggle}
-      aria-label="Alternar tema do modo onchain"
+      aria-label={label}
       className={`w-9 h-9 shrink-0 border-2 border-[var(--c-ink)] bg-[var(--c-paper)] text-[var(--c-ink)] grid place-items-center hover:-translate-y-0.5 transition-transform ${className}`}
     >
       {theme === "dark" ? <SunIcon /> : <MoonIcon />}
@@ -48,11 +43,51 @@ function ThemeToggle({ className = "" }: { className?: string }) {
   );
 }
 
+function LangToggle({ className = "" }: { className?: string }) {
+  const { lang, toggle } = useLanguage();
+  const ct = criptoDict[lang];
+  return (
+    <button
+      onClick={toggle}
+      aria-label={ct.nav.switchLang}
+      className={`h-9 px-2 shrink-0 border-2 border-[var(--c-ink)] bg-[var(--c-paper)] c-mono text-[10px] tracking-[0.08em] flex items-center gap-1 hover:-translate-y-0.5 transition-transform ${className}`}
+    >
+      <span className={lang === "en" ? "text-[var(--c-red)] font-bold" : "text-[var(--c-ink-soft)]"}>EN</span>
+      <span className="text-[var(--c-ink-soft)]">/</span>
+      <span className={lang === "pt" ? "text-[var(--c-red)] font-bold" : "text-[var(--c-ink-soft)]"}>PT</span>
+    </button>
+  );
+}
+
 export default function CriptoNav() {
   const [open, setOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const lastY = useRef(0);
+  const { lang } = useLanguage();
+  const { nav } = criptoDict[lang];
+  const links = nav.links;
+
+  // Hide on scroll down, reveal on scroll up (mobile) so the nav is
+  // reachable from anywhere in the page.
+  useEffect(() => {
+    lastY.current = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      const delta = y - lastY.current;
+      if (Math.abs(delta) < 8) return;
+      setHidden(y > 80 && delta > 0);
+      lastY.current = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50">
+    <header
+      className={`sticky top-0 z-50 transition-transform duration-300 ${
+        hidden && !open ? "-translate-y-full md:translate-y-0" : "translate-y-0"
+      }`}
+    >
       {/* fake OS menu bar */}
       <div className="c-mono text-[10.5px] tracking-[0.06em] bg-[var(--c-void)] text-[var(--c-white)] px-3 py-1 flex items-center gap-4">
         <span className="opacity-70">File</span>
@@ -82,20 +117,22 @@ export default function CriptoNav() {
                 {l.label}
               </a>
             ))}
-            <ThemeToggle className="ml-2" />
+            <LangToggle className="ml-2" />
+            <ThemeToggle label={nav.toggleTheme} className="ml-1" />
             <Link
               href="/"
               className="c-mono text-[11px] tracking-[0.1em] uppercase px-3 py-2 border-2 border-[var(--c-ink)] ml-1 bg-[var(--c-lime)] text-[var(--c-on-bright)] hover:-translate-y-0.5 transition-transform"
             >
-              ← Portfólio
+              {nav.backToPortfolio}
             </Link>
           </div>
 
           <div className="md:hidden flex items-center gap-2">
-            <ThemeToggle />
+            <LangToggle />
+            <ThemeToggle label={nav.toggleTheme} />
             <button
               onClick={() => setOpen((v) => !v)}
-              aria-label="Menu"
+              aria-label={nav.menu}
               className="w-9 h-9 border-2 border-[var(--c-ink)] flex items-center justify-center bg-[var(--c-paper)] text-[var(--c-ink)]"
             >
               <span className="c-mono text-sm">{open ? "✕" : "≡"}</span>
@@ -120,7 +157,7 @@ export default function CriptoNav() {
               onClick={() => setOpen(false)}
               className="c-mono text-[13px] tracking-[0.08em] uppercase py-2.5 mt-1 border-2 border-[var(--c-ink)] bg-[var(--c-lime)] text-[var(--c-on-bright)] text-center"
             >
-              ← Voltar ao portfólio
+              {nav.backToPortfolioLong}
             </Link>
           </div>
         )}

@@ -29,7 +29,9 @@
   background: var(--c-paper);
   color: var(--c-ink);
   font-family: var(--c-sans);
-  overflow: hidden;
+  /* clip (not hidden): clips decorative overflow without creating a
+     scroll container, so the sticky nav keeps working */
+  overflow-x: clip;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 

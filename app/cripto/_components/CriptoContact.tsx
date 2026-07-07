@@ -1,5 +1,9 @@
+"use client";
+
 import Window from "./Window";
 import { contactSocials } from "../_data";
+import { useLanguage } from "@/lib/useLanguage";
+import { criptoDict } from "../_i18n";
 
 const fcHandle =
   contactSocials.find((s) => s.label === "Farcaster")?.handle.replace(/^@/, "") ??
@@ -12,6 +16,9 @@ const castHref = `https://warpcast.com/~/compose?text=${encodeURIComponent(
 )}`;
 
 export default function CriptoContact() {
+  const { lang } = useLanguage();
+  const { contact } = criptoDict[lang];
+
   return (
     <section
       id="contato"
@@ -20,16 +27,15 @@ export default function CriptoContact() {
       <div className="max-w-[1160px] mx-auto px-5 py-20 grid md:grid-cols-[0.9fr_1.1fr] gap-10 items-center">
         <div className="text-[var(--c-white)]">
           <p className="c-label mb-3 !text-[var(--c-white)]/70">
-            [ 05 — reach_out.sh ]
+            {contact.label}
           </p>
           <h2 className="c-display text-[clamp(30px,5.4vw,58px)]">
-            Bora
+            {contact.titleLine1}
             <br />
-            construir?
+            {contact.titleLine2}
           </h2>
           <p className="c-mono text-[13px] leading-[1.7] mt-5 max-w-[360px] text-[var(--c-white)]/80">
-            Colaboração, contribuição ou uma ideia onchain? Me acha no Farcaster —
-            ou em qualquer um dos canais aí do lado.
+            {contact.description}
           </p>
           <span className="c-tag mt-7 !border-[var(--c-lime)] !text-[var(--c-lime)] !bg-transparent">
             ◆ LOUZOSHI.ETH

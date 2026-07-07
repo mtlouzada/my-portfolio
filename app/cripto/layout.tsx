@@ -4,7 +4,7 @@ import "./cripto.css";
 export const metadata: Metadata = {
   title: "Louzoshi — Onchain",
   description:
-    "Portfólio onchain de Matheus Louzada (louzoshi.eth) — contribuições open-source web3, integrações e NFTs.",
+    "Onchain portfolio of Matheus Louzada (louzoshi.eth) — web3 open-source contributions, integrations and NFTs.",
 };
 
 // Apply the crypto theme before paint to avoid a flash on hard loads.

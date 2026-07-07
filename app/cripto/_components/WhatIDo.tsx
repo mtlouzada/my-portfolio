@@ -1,10 +1,15 @@
+"use client";
+
 import Reveal from "@/components/Reveal";
 import Window from "./Window";
-import { disciplines } from "../_data";
-
-const cards = [disciplines.onchain, disciplines.community];
+import { useLanguage } from "@/lib/useLanguage";
+import { criptoDict } from "../_i18n";
 
 export default function WhatIDo() {
+  const { lang } = useLanguage();
+  const { whatIDo } = criptoDict[lang];
+  const cards = [whatIDo.onchain, whatIDo.community];
+
   return (
     <section
       id="faco"
@@ -13,10 +18,10 @@ export default function WhatIDo() {
       <div className="max-w-[1160px] mx-auto px-5 py-20">
         <Reveal>
           <p className="c-label mb-3 !text-[var(--c-white)]/70">
-            [ 03 — dois lados ]
+            {whatIDo.label}
           </p>
           <h2 className="c-display text-[clamp(30px,5vw,58px)]">
-            Dois mundos, um dev.
+            {whatIDo.title}
           </h2>
         </Reveal>
 

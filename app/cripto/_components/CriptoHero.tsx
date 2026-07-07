@@ -2,8 +2,13 @@
 
 import Link from "next/link";
 import EthLogo from "./EthLogo";
+import { useLanguage } from "@/lib/useLanguage";
+import { criptoDict } from "../_i18n";
 
 export default function CriptoHero() {
+  const { lang } = useLanguage();
+  const { hero } = criptoDict[lang];
+
   return (
     <section className="relative border-b-2 border-[var(--c-ink)] overflow-hidden">
       {/* floating background shapes */}
@@ -28,18 +33,14 @@ export default function CriptoHero() {
         {/* left: copy */}
         <div>
           <p className="c-label mb-6 flex items-center gap-2">
-            <span className="text-[var(--c-red)]">●</span> onchain builder ·
-            open source
+            <span className="text-[var(--c-red)]">●</span> {hero.label}
           </p>
 
           <h1 className="c-display text-[clamp(44px,8.5vw,92px)]">
-            I BUILD FOR
+            {hero.h1Line1}
             <br />
-            THE{" "}
-            <span
-              className="glitch"
-              data-text="ONCHAIN"
-            >
+            {hero.h1Line2Pre}
+            <span className="glitch" data-text="ONCHAIN">
               ONCHAIN
             </span>
             <br />
@@ -47,14 +48,12 @@ export default function CriptoHero() {
           </h1>
 
           <p className="c-mono text-[13px] leading-[1.7] mt-7 max-w-[440px] text-[var(--c-ink-soft)]">
-            Dev fullstack contribuindo com projetos open-source de web3 e
-            cultura digital — de plataformas de comunidade a ferramentas
-            onchain. Aqui vive o lado cripto do meu trabalho.
+            {hero.description}
           </p>
 
           <div className="flex flex-wrap gap-3.5 mt-9">
             <a href="#builds" className="c-btn c-btn-red">
-              Ver builds →
+              {hero.viewBuilds}
             </a>
             <a
               href="https://github.com/mtlouzada"

@@ -1,6 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import Ticker from "./Ticker";
 import { contactSocials } from "../_data";
+import { useLanguage } from "@/lib/useLanguage";
+import { criptoDict } from "../_i18n";
 
 const footerItems = [
   "LET'S BUILD SOMETHING",
@@ -12,6 +16,9 @@ const footerItems = [
 ];
 
 export default function CriptoFooter() {
+  const { lang } = useLanguage();
+  const { footer } = criptoDict[lang];
+
   return (
     <footer className="bg-[var(--c-void)] text-[var(--c-white)]">
       <div className="border-b-2 border-[var(--c-white)]/20 py-3">
@@ -23,7 +30,7 @@ export default function CriptoFooter() {
         </Link>
         <div className="flex flex-wrap gap-5 c-mono text-[11px] tracking-[0.08em] uppercase">
           <Link href="/" className="hover:text-[var(--c-lime)] transition-colors">
-            ← Portfólio
+            {footer.backToPortfolio}
           </Link>
           {contactSocials.map((s) => (
             <a

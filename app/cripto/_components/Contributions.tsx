@@ -1,6 +1,10 @@
+"use client";
+
 import type { CSSProperties } from "react";
 import Reveal from "@/components/Reveal";
 import { contributions } from "../_data";
+import { useLanguage } from "@/lib/useLanguage";
+import { criptoDict } from "../_i18n";
 
 const fontClass: Record<string, string> = {
   display: "c-display",
@@ -9,18 +13,21 @@ const fontClass: Record<string, string> = {
 };
 
 export default function Contributions() {
+  const { lang } = useLanguage();
+  const { builds } = criptoDict[lang];
+
   return (
     <section id="builds" className="scroll-mt-24 border-b-2 border-[var(--c-ink)]">
       <div className="max-w-[1160px] mx-auto px-5 py-20">
         <Reveal className="flex items-end justify-between mb-10 gap-4">
           <div>
-            <p className="c-label mb-3">[ 02 — selected builds ]</p>
+            <p className="c-label mb-3">{builds.label}</p>
             <h2 className="c-display text-[clamp(30px,5vw,58px)]">
-              O portfólio é o ponto.
+              {builds.title}
             </h2>
           </div>
           <span className="c-mono text-[11px] text-[var(--c-ink-soft)] hidden sm:block">
-            hover p/ abrir ↗
+            {builds.hoverHint}
           </span>
         </Reveal>
 
@@ -51,7 +58,7 @@ export default function Contributions() {
                   {c.title}
                 </span>
                 <span className="c-mono text-[10px] tracking-[0.1em] uppercase text-right text-[var(--c-ink-soft)] group-hover:text-[var(--row-fg)] transition-colors hidden sm:block">
-                  {c.role}
+                  {builds.roles[c.role]}
                   <br />
                   {c.meta}
                 </span>
