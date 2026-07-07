@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { LanguageProvider } from "@/lib/useLanguage";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -15,11 +16,12 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Matheus Louzada",
-  description: "Desenvolvedor Fullstack — .NET, C#, React, TypeScript",
+  description: "Fullstack Developer — .NET, C#, React, TypeScript",
 };
 
-// Set the theme before paint to avoid a flash of the wrong color scheme.
-const themeScript = `(function(){try{var t=localStorage.getItem('ml-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();`;
+// Set the theme and language before paint to avoid a flash of the wrong
+// color scheme / lang attribute.
+const themeScript = `(function(){try{var t=localStorage.getItem('ml-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);var l=localStorage.getItem('ml-lang');document.documentElement.lang=l==='pt'?'pt-BR':'en';}catch(e){}})();`;
 
 export default function RootLayout({
   children,
@@ -27,14 +29,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-bg text-fg font-sans overflow-x-hidden`}
       >
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );

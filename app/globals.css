@@ -65,6 +65,51 @@
   }
 }
 
+/* Crypto nav pill — iridescent Ethereum mark + periodic sheen sweep */
+.eth-holo {
+  animation: eth-holo 8s linear infinite;
+}
+@keyframes eth-holo {
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.crypto-pill {
+  position: relative;
+  overflow: hidden;
+}
+.crypto-pill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 32%,
+    var(--sheen) 50%,
+    transparent 68%
+  );
+  transform: translateX(-130%);
+  animation: crypto-sheen 5.5s ease-in-out infinite;
+}
+:root {
+  --sheen: rgba(255, 255, 255, 0.55);
+}
+[data-theme="dark"] {
+  --sheen: rgba(255, 255, 255, 0.13);
+}
+@keyframes crypto-sheen {
+  0%,
+  58% {
+    transform: translateX(-130%);
+  }
+  88%,
+  100% {
+    transform: translateX(130%);
+  }
+}
+
 /* Scroll reveal */
 .reveal {
   opacity: 0;
@@ -82,6 +127,10 @@
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
+  }
+  .eth-holo,
+  .crypto-pill::after {
+    animation: none;
   }
   html {
     scroll-behavior: auto;

@@ -1,39 +1,38 @@
-import Reveal from "./Reveal";
+"use client";
 
-const socials = [
-  {
-    label: "LinkedIn ↗",
-    href: "https://www.linkedin.com/in/matheus-louzadaa/",
-    primary: true,
-  },
-  // TODO: trocar 55SEUNUMERO pelo teu número (DDI+DDD+número, só dígitos, ex: 5521999998888)
-  {
-    label: "WhatsApp ↗",
-    href: "https://wa.me/55SEUNUMERO?text=Ol%C3%A1%20Matheus%2C%20vi%20seu%20portf%C3%B3lio!",
-    primary: false,
-  },
-  { label: "GitHub ↗", href: "https://github.com/mtlouzada", primary: false },
-];
+import Reveal from "./Reveal";
+import { useLanguage } from "@/lib/useLanguage";
 
 export default function Contact() {
+  const { t } = useLanguage();
+
+  const socials = [
+    {
+      label: "LinkedIn ↗",
+      href: "https://www.linkedin.com/in/matheus-louzadaa/",
+      primary: true,
+    },
+    { label: "WhatsApp ↗", href: t.contact.whatsappHref, primary: false },
+    { label: "GitHub ↗", href: "https://github.com/mtlouzada", primary: false },
+  ];
+
   return (
     <section
       id="contato"
       className="scroll-mt-20 py-[150px] px-6 border-t border-line text-center"
     >
       <Reveal className="max-w-[760px] mx-auto">
-        <p className="label-mono">Contato</p>
+        <p className="label-mono">{t.contact.label}</p>
         <h2 className="text-[clamp(40px,7.5vw,86px)] font-semibold tracking-[-0.035em] leading-[1.02] mt-6 text-fg">
-          Vamos conversar.
+          {t.contact.title}
         </h2>
         <p className="mt-7 text-[clamp(17px,2.4vw,21px)] leading-[1.55] text-muted max-w-[520px] mx-auto text-pretty">
-          Me manda uma mensagem no LinkedIn ou no WhatsApp — respondo por lá. E se
-          curtir o trabalho, bora trocar um follow no GitHub.
+          {t.contact.description}
         </p>
         <div className="flex gap-3 justify-center flex-wrap mt-[46px]">
           {socials.map((s) => (
             <a
-              key={s.href}
+              key={s.label}
               href={s.href}
               target="_blank"
               rel="noopener noreferrer"

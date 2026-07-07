@@ -1,14 +1,19 @@
+"use client";
+
 import Image from "next/image";
 import Reveal from "./Reveal";
+import { useLanguage } from "@/lib/useLanguage";
 
 export default function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section id="top" className="max-w-[1120px] mx-auto px-6 pt-36 pb-28">
       <div className="flex flex-col md:flex-row-reverse items-center gap-12 md:gap-16">
         {/* text — right on desktop */}
         <div className="flex-1 min-w-0 text-center md:text-left">
           <Reveal delay={0.04}>
-            <p className="label-mono">Desenvolvedor Fullstack</p>
+            <p className="label-mono">{t.hero.role}</p>
           </Reveal>
 
           <Reveal delay={0.1} className="mt-6">
@@ -21,9 +26,7 @@ export default function Hero() {
 
           <Reveal delay={0.18} className="mt-7">
             <p className="max-w-[540px] mx-auto md:mx-0 text-[clamp(16px,2vw,20px)] leading-[1.55] text-muted text-pretty">
-              Fullstack .NET com C# e ASP.NET Core no back-end — APIs REST
-              escaláveis com SQL Server e Entity Framework. React e TypeScript no
-              front-end, cobrindo o fluxo completo da interface à API e ao banco.
+              {t.hero.description}
             </p>
           </Reveal>
 
@@ -33,7 +36,7 @@ export default function Hero() {
                 href="#projetos"
                 className="px-7 py-3.5 rounded-pill bg-accent text-white font-medium text-[15px] transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-8px_rgba(91,91,214,0.55)]"
               >
-                Ver projetos
+                {t.hero.viewProjects}
               </a>
               <a
                 href="https://github.com/mtlouzada"
@@ -55,15 +58,15 @@ export default function Hero() {
           </Reveal>
         </div>
 
-        {/* photo — left on desktop */}
-        <Reveal delay={0.34} className="w-full max-w-[420px] md:max-w-[460px] shrink-0">
-          <div className="relative w-full aspect-[4/5] rounded-[28px] overflow-hidden shadow-elevated">
+        {/* photo — GitHub-style circular avatar, left on desktop */}
+        <Reveal delay={0.34} className="shrink-0">
+          <div className="relative w-[220px] sm:w-[260px] md:w-[300px] aspect-square rounded-full overflow-hidden ring-1 ring-line shadow-elevated">
             <Image
               src="/imgs/newphoto.jpg"
               alt="Matheus Louzada"
               fill
               priority
-              sizes="(max-width: 768px) 100vw, 460px"
+              sizes="(max-width: 768px) 260px, 300px"
               className="object-cover"
             />
           </div>

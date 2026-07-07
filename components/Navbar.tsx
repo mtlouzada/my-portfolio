@@ -3,12 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useTheme } from "@/lib/useTheme";
-
-const links = [
-  { label: "Sobre", href: "#sobre" },
-  { label: "Projetos", href: "#projetos" },
-  { label: "Contato", href: "#contato" },
-];
+import { useLanguage } from "@/lib/useLanguage";
 
 function SunIcon() {
   return (
@@ -34,6 +29,33 @@ function MoonIcon() {
   );
 }
 
+/** Ethereum diamond with the same iridescent gradient used in /cripto.
+   `id` keeps gradient defs unique when the mark renders twice (desktop + mobile menu). */
+function EthMark({ id, className = "" }: { id: string; className?: string }) {
+  const grad = `eth-grad-${id}`;
+  return (
+    <svg viewBox="0 0 256 417" className={className} xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id={grad} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#7dd3fc" />
+          <stop offset="28%" stopColor="#818cf8" />
+          <stop offset="52%" stopColor="#c084fc" />
+          <stop offset="74%" stopColor="#f0abfc" />
+          <stop offset="100%" stopColor="#5eead4" />
+        </linearGradient>
+      </defs>
+      <g fill={`url(#${grad})`}>
+        <polygon opacity="0.7" points="127.9611 0 125.1661 9.5 125.1661 285.168 127.9611 287.958 255.9231 212.32" />
+        <polygon points="127.962 0 0 212.32 127.962 287.959 127.962 154.158" />
+        <polygon opacity="0.7" points="127.9611 312.1866 126.3861 314.1066 126.3861 412.3056 127.9611 416.9066 255.9991 236.5866" />
+        <polygon points="127.962 416.9052 127.962 312.1852 0 236.5852" />
+        <polygon opacity="0.45" points="127.9611 287.9577 255.9211 212.3207 127.9611 154.1587" />
+        <polygon opacity="0.6" points="0.0009 212.3208 127.9609 287.9578 127.9609 154.1588" />
+      </g>
+    </svg>
+  );
+}
+
 function Logo() {
   return (
     <Link href="#top" aria-label="Início" className="group flex items-center gap-2.5">
@@ -47,9 +69,26 @@ function Logo() {
   );
 }
 
+function LangToggle({ className = "" }: { className?: string }) {
+  const { lang, toggle, t } = useLanguage();
+  return (
+    <button
+      onClick={toggle}
+      aria-label={t.nav.switchLang}
+      className={`h-9 px-2.5 rounded-full border border-line flex items-center gap-1 font-mono text-[11px] tracking-[0.04em] hover:bg-elev transition-colors ${className}`}
+    >
+      <span className={lang === "en" ? "text-fg font-semibold" : "text-muted"}>EN</span>
+      <span className="text-muted opacity-50">/</span>
+      <span className={lang === "pt" ? "text-fg font-semibold" : "text-muted"}>PT</span>
+    </button>
+  );
+}
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const { theme, toggle } = useTheme();
+  const { t } = useLanguage();
+  const links = t.nav.links;
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-line bg-[var(--nav-bg)] backdrop-blur-xl backdrop-saturate-150">
@@ -74,39 +113,32 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* right — actions */}
+        {/* right — actions: utilities first, crypto CTA anchors the edge */}
         <div className="flex justify-end items-center gap-2">
-          <Link
-            href="/cripto"
-            className="group hidden sm:inline-flex items-center gap-2 pl-3 pr-3.5 py-2 rounded-pill text-[13.5px] font-medium text-accent bg-accent-soft border border-transparent hover:border-accent/30 transition-colors"
-          >
-            <span className="relative flex w-1.5 h-1.5">
-              <span className="absolute inline-flex w-full h-full rounded-full bg-accent opacity-60 animate-ping" />
-              <span className="relative inline-flex w-1.5 h-1.5 rounded-full bg-accent" />
-            </span>
-            Cripto
-          </Link>
+          <LangToggle className="hidden sm:flex" />
 
           <button
             onClick={toggle}
-            aria-label="Alternar tema"
+            aria-label={t.nav.toggleTheme}
             className="w-9 h-9 rounded-full border border-line text-fg flex items-center justify-center hover:bg-elev transition-colors"
           >
             {theme === "dark" ? <MoonIcon /> : <SunIcon />}
           </button>
 
-          <a
-            href="https://www.linkedin.com/in/matheus-louzadaa/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:inline-flex px-[18px] py-2 rounded-pill bg-fg text-bg text-[14px] font-medium hover:opacity-80 transition-opacity"
+          <Link
+            href="/cripto"
+            className="crypto-pill group hidden sm:inline-flex items-center gap-2 pl-3 pr-3.5 py-2 rounded-pill text-[13.5px] font-medium text-accent bg-accent-soft border border-transparent hover:border-accent/30 transition-colors"
           >
-            LinkedIn ↗
-          </a>
+            <EthMark
+              id="nav"
+              className="eth-holo h-[15px] w-auto transition-transform duration-300 group-hover:-translate-y-[1.5px] group-hover:scale-110"
+            />
+            Crypto
+          </Link>
 
           <button
             onClick={() => setOpen((v) => !v)}
-            aria-label="Menu"
+            aria-label={t.nav.menu}
             className="md:hidden w-9 h-9 rounded-full border border-line text-fg flex items-center justify-center hover:bg-elev transition-colors"
           >
             {open ? (
@@ -141,18 +173,12 @@ export default function Navbar() {
             onClick={() => setOpen(false)}
             className="px-3 py-3.5 rounded-xl text-[17px] font-medium text-accent bg-accent-soft mt-1 inline-flex items-center gap-2.5"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-            Cripto ↗
+            <EthMark id="menu" className="eth-holo h-[18px] w-auto" />
+            Crypto ↗
           </Link>
-          <a
-            href="https://www.linkedin.com/in/matheus-louzadaa/"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setOpen(false)}
-            className="px-3 py-3.5 rounded-xl text-[17px] font-medium text-bg bg-fg mt-1 text-center"
-          >
-            LinkedIn ↗
-          </a>
+          <div className="px-3 pt-3 pb-1">
+            <LangToggle />
+          </div>
         </div>
       )}
     </nav>

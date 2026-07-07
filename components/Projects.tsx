@@ -1,26 +1,29 @@
+"use client";
+
 import Image from "next/image";
 import Reveal from "./Reveal";
+import { useLanguage } from "@/lib/useLanguage";
 
 const projects = [
   {
+    key: "skatehive" as const,
     title: "SkateHive",
     tag: "open-source",
     image: "/imgs/sk8hive-filter2.png",
     href: "https://skatehive.app/",
-    description:
-      "Projeto open source internacional focado em conectar a comunidade do skate por meio da tecnologia. Contribuo ativamente no desenvolvimento.",
   },
   {
+    key: "communityOrg" as const,
     title: "Community Org",
     tag: "web",
     image: "/imgs/cmo-printfilter.png",
     href: "https://community-org-beta.vercel.app/",
-    description:
-      "Site da Community Org, empresa de tecnologia focada em conectar comunidades e organizações por meio de soluções digitais.",
   },
 ];
 
 export default function Projects() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="projetos"
@@ -28,9 +31,9 @@ export default function Projects() {
     >
       <div className="max-w-[1120px] mx-auto">
         <Reveal className="mb-[72px]">
-          <p className="label-mono mb-4">Trabalho em destaque</p>
+          <p className="label-mono mb-4">{t.projects.label}</p>
           <h2 className="text-[clamp(34px,5.5vw,64px)] font-semibold tracking-[-0.03em] leading-[1.02] text-fg">
-            Projetos
+            {t.projects.title}
           </h2>
         </Reveal>
 
@@ -68,7 +71,7 @@ export default function Projects() {
                 {p.title}
               </h3>
               <p className="mt-4 text-[17px] leading-[1.6] text-muted max-w-[440px]">
-                {p.description}
+                {t.projects.descriptions[p.key]}
               </p>
               <a
                 href={p.href}
@@ -76,7 +79,7 @@ export default function Projects() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-fg font-medium text-[15px] mt-[26px] hover:text-accent transition-colors"
               >
-                Ver projeto <span className="text-[13px]">↗</span>
+                {t.projects.viewProject} <span className="text-[13px]">↗</span>
               </a>
             </div>
           </Reveal>
@@ -90,35 +93,37 @@ export default function Projects() {
 
 const personal = [
   {
-    title: "Gestor de Finanças",
+    key: "finance" as const,
     stack: ".NET · React",
     href: "https://github.com/mtlouzada/Trust-Finance",
   },
   {
-    title: "Gestão de Tarefas",
+    key: "tasks" as const,
     stack: ".NET · React",
     href: "https://github.com/mtlouzada/fullstack-challenge",
   },
   {
-    title: "Bots & Agentes",
+    key: "bots" as const,
     stack: "Node.js · Discord API",
     href: "https://github.com/mtlouzada/bot-discord",
   },
 ];
 
 function PersonalProjects() {
+  const { t } = useLanguage();
+
   return (
     <Reveal className="mt-[104px]">
       <p className="font-mono text-[13px] tracking-[0.04em] text-muted mb-3.5">
-        Autodidata
+        {t.projects.personal.label}
       </p>
       <h3 className="text-[clamp(24px,3.4vw,38px)] font-semibold tracking-[-0.02em] mb-9 text-fg">
-        Projetos autorais
+        {t.projects.personal.title}
       </h3>
       <div className="grid grid-cols-[repeat(auto-fit,minmax(258px,1fr))] gap-[18px]">
         {personal.map((item) => (
           <a
-            key={item.title}
+            key={item.key}
             href={item.href}
             target="_blank"
             rel="noopener noreferrer"
@@ -126,12 +131,12 @@ function PersonalProjects() {
           >
             <div className="flex items-center justify-between">
               <span className="font-mono text-[11px] tracking-[0.03em] text-muted px-[9px] py-[5px] rounded-pill border border-line">
-                Em desenvolvimento
+                {t.projects.personal.inDevelopment}
               </span>
               <span className="text-muted text-sm">↗</span>
             </div>
             <h4 className="text-[21px] font-semibold tracking-[-0.01em] mt-[26px] mb-2 text-fg">
-              {item.title}
+              {t.projects.personal.titles[item.key]}
             </h4>
             <p className="font-mono text-[13px] text-muted">{item.stack}</p>
           </a>
