@@ -13,14 +13,12 @@ export default function Intro() {
     <section className="border-b-2 border-[var(--c-ink)] bg-[var(--c-paper-2)]">
       <div className="max-w-[1160px] mx-auto px-5 py-20 grid md:grid-cols-[0.85fr_1.15fr] gap-12 items-start">
         <Reveal>
-          <div
-            className="halftone aspect-[4/3] border-2 border-[var(--c-ink)] shadow-[5px_5px_0_var(--c-ink)]"
-            style={{
-              ["--dot" as string]: "var(--c-teal)",
-              background:
-                "linear-gradient(120deg, var(--c-lime) 0 55%, var(--c-red) 55% 100%)",
-            }}
-          />
+          <div className="cyber aspect-[4/3] border-2 border-[var(--c-ink)] shadow-[5px_5px_0_var(--c-ink)]">
+            <div className="cyber-sun" />
+            <div className="cyber-grid" />
+            <div className="cyber-scan" />
+            <span className="cyber-tag">SYS://ONCHAIN</span>
+          </div>
         </Reveal>
 
         <Reveal delay={0.08}>

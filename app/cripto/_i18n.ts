@@ -9,7 +9,6 @@ const en = {
   nav: {
     links: [
       { label: "Builds", href: "#builds" },
-      { label: "What I do", href: "#faco" },
       { label: "NFTs", href: "#nfts" },
       { label: "Contact", href: "#contato" },
     ],
@@ -28,13 +27,13 @@ const en = {
     viewBuilds: "View builds →",
   },
   intro: {
-    label: "[ 01 — manifesto ]",
-    titleLine1: "Not an agency.",
-    titlePre: "A dev who ",
-    titleWord: "contributes",
-    titlePost: " for real.",
+    label: "[ 01 — proof ]",
+    titleLine1: "Proof of",
+    titlePre: "",
+    titleWord: "work",
+    titlePost: ".",
     description:
-      "Years across .NET back ends and React front ends, with one foot planted in web3 open source. I don't collect templates — I collect commits, reviews and things that shipped and stayed up.",
+      "Full-stack Web3 developer specializing in React, TypeScript, Node.js, smart contracts, and wallet integrations.",
     stats: [
       { value: 6, suffix: "+", label: "Repos contributed to" },
       { value: 40, suffix: "+", label: "PRs & commits" },
@@ -45,37 +44,51 @@ const en = {
   builds: {
     label: "[ 02 — selected builds ]",
     title: "The portfolio is the point.",
-    hoverHint: "hover to open ↗",
+    hoverHint: "click to open ↗",
     roles: { contributor: "Contributor", dev: "Dev" },
-  },
-  whatIDo: {
-    label: "[ 03 — two sides ]",
-    title: "Two worlds, one dev.",
-    onchain: {
-      title: "Onchain Dev",
-      accent: "--c-blue",
-      items: [
-        "Wallet integrations (wallet connect)",
-        "Onchain reads & contracts",
-        "dApps with Next.js + React",
-        "APIs & data indexing",
-        "Automation & bots",
-      ],
-    },
-    community: {
-      title: "Open Source & Community",
-      accent: "--c-red",
-      items: [
-        "Contributing to open projects",
-        "Tools for communities",
-        "SkateHive & web3 culture",
-        "Tooling & DX",
-        "Docs & reviews",
-      ],
+    backToBuilds: "← All builds",
+    visitSite: "Visit site ↗",
+    overviewLabel: "Overview",
+    contributionsLabel: "What I did",
+    stackLabel: "Stack",
+    details: {
+      skatehive: {
+        overview:
+          "International open-source platform connecting the skateboarding community through web3. Built on Hive, it lets skaters post, earn and organize onchain.",
+        points: [
+          "Front-end features in React / Next.js and TypeScript",
+          "Onchain interactions with the Hive blockchain",
+          "Bug fixes, reviews and community tooling",
+        ],
+      },
+      "community-org": {
+        overview:
+          "Website for Community Org, a tech company connecting communities and organizations through digital solutions.",
+        points: [
+          "Built the site with Next.js and TypeScript",
+          "Responsive UI and deploy on Vercel",
+        ],
+      },
+      gnars: {
+        overview:
+          "Onchain skate DAO in the Nouns ecosystem. Gnars funds skaters and creators through a treasury governed onchain.",
+        points: [
+          "Contributions to the dApp front end",
+          "Wallet and contract reads with wagmi / viem",
+        ],
+      },
+      builderdao: {
+        overview:
+          "Nouns Builder is the tooling that lets anyone launch and run an onchain DAO — open-source infrastructure for the Nouns ecosystem.",
+        points: [
+          "Open-source contributions to the builder app",
+          "Next.js / TypeScript across the stack",
+        ],
+      },
     },
   },
   nfts: {
-    label: "[ 04 — wallet ]",
+    label: "[ 03 — wallet ]",
     title: "The onchain gallery.",
     sampleTag: "◆ sample data — plug wallet",
     notePre: "> This grid uses sample data. To display real NFTs, wire the ",
@@ -84,7 +97,7 @@ const en = {
       " wallet to an API (Alchemy / OpenSea / Zora) — the layout is ready to receive items dynamically.",
   },
   contact: {
-    label: "[ 05 — reach_out.sh ]",
+    label: "[ 04 — reach_out.sh ]",
     titleLine1: "Let's",
     titleLine2: "build?",
     description:
@@ -101,7 +114,6 @@ const pt: CriptoDictionary = {
   nav: {
     links: [
       { label: "Builds", href: "#builds" },
-      { label: "O que faço", href: "#faco" },
       { label: "NFTs", href: "#nfts" },
       { label: "Contato", href: "#contato" },
     ],
@@ -120,13 +132,13 @@ const pt: CriptoDictionary = {
     viewBuilds: "Ver builds →",
   },
   intro: {
-    label: "[ 01 — manifesto ]",
-    titleLine1: "Não é agência.",
-    titlePre: "É um dev que ",
-    titleWord: "contribui",
-    titlePost: " de verdade.",
+    label: "[ 01 — proof ]",
+    titleLine1: "Proof of",
+    titlePre: "",
+    titleWord: "work",
+    titlePost: ".",
     description:
-      "Anos entre back-end .NET e front-end React, com um pé fincado no open-source web3. Não coleciono templates — coleciono commits, reviews e coisas que foram pro ar e ficaram de pé.",
+      "Desenvolvedor full-stack Web3 especializado em React, TypeScript, Node.js, smart contracts e integração de carteiras.",
     stats: [
       { value: 6, suffix: "+", label: "Repos contribuídos" },
       { value: 40, suffix: "+", label: "PRs & commits" },
@@ -137,37 +149,51 @@ const pt: CriptoDictionary = {
   builds: {
     label: "[ 02 — selected builds ]",
     title: "O portfólio é o ponto.",
-    hoverHint: "hover p/ abrir ↗",
+    hoverHint: "clique p/ abrir ↗",
     roles: { contributor: "Contribuidor", dev: "Dev" },
-  },
-  whatIDo: {
-    label: "[ 03 — dois lados ]",
-    title: "Dois mundos, um dev.",
-    onchain: {
-      title: "Onchain Dev",
-      accent: "--c-blue",
-      items: [
-        "Integração de carteiras (wallet connect)",
-        "Leitura on-chain & contratos",
-        "dApps com Next.js + React",
-        "APIs e indexação de dados",
-        "Automação & bots",
-      ],
-    },
-    community: {
-      title: "Open Source & Comunidade",
-      accent: "--c-red",
-      items: [
-        "Contribuição em projetos abertos",
-        "Ferramentas para comunidades",
-        "SkateHive & cultura web3",
-        "Tooling e DX",
-        "Documentação e reviews",
-      ],
+    backToBuilds: "← Todos os builds",
+    visitSite: "Ver site ↗",
+    overviewLabel: "Visão geral",
+    contributionsLabel: "O que eu fiz",
+    stackLabel: "Stack",
+    details: {
+      skatehive: {
+        overview:
+          "Plataforma open-source internacional que conecta a comunidade do skate via web3. Construída sobre a Hive, permite que skatistas postem, ganhem e se organizem onchain.",
+        points: [
+          "Features de front-end em React / Next.js e TypeScript",
+          "Interações onchain com a blockchain Hive",
+          "Correções, reviews e ferramentas para a comunidade",
+        ],
+      },
+      "community-org": {
+        overview:
+          "Site da Community Org, empresa de tecnologia que conecta comunidades e organizações por meio de soluções digitais.",
+        points: [
+          "Desenvolvi o site com Next.js e TypeScript",
+          "UI responsiva e deploy na Vercel",
+        ],
+      },
+      gnars: {
+        overview:
+          "DAO de skate onchain no ecossistema Nouns. A Gnars financia skatistas e criadores por meio de uma tesouraria governada onchain.",
+        points: [
+          "Contribuições no front-end do dApp",
+          "Leitura de carteiras e contratos com wagmi / viem",
+        ],
+      },
+      builderdao: {
+        overview:
+          "Nouns Builder é a ferramenta que permite lançar e operar uma DAO onchain — infraestrutura open-source para o ecossistema Nouns.",
+        points: [
+          "Contribuições open-source no app do builder",
+          "Next.js / TypeScript ao longo da stack",
+        ],
+      },
     },
   },
   nfts: {
-    label: "[ 04 — wallet ]",
+    label: "[ 03 — wallet ]",
     title: "A galeria onchain.",
     sampleTag: "◆ dados de exemplo — plugar wallet",
     notePre: "> Esta grade usa dados de exemplo. Para exibir NFTs reais, ligue a wallet ",
@@ -176,7 +202,7 @@ const pt: CriptoDictionary = {
       " a uma API (Alchemy / OpenSea / Zora) — o layout já está pronto para receber os itens dinamicamente.",
   },
   contact: {
-    label: "[ 05 — reach_out.sh ]",
+    label: "[ 04 — reach_out.sh ]",
     titleLine1: "Bora",
     titleLine2: "construir?",
     description:

@@ -3,7 +3,6 @@ import CriptoHero from "./_components/CriptoHero";
 import Ticker from "./_components/Ticker";
 import Intro from "./_components/Intro";
 import Contributions from "./_components/Contributions";
-import WhatIDo from "./_components/WhatIDo";
 import Nfts from "./_components/Nfts";
 import CriptoContact from "./_components/CriptoContact";
 import CriptoFooter from "./_components/CriptoFooter";
@@ -27,7 +26,6 @@ export default function CriptoPage() {
           <Ticker items={stack} duration={24} reverse sep="✦" />
         </div>
 
-        <WhatIDo />
         <Nfts />
         <CriptoContact />
       </main>

@@ -414,6 +414,132 @@ html[data-ctheme="dark"] .cripto-root::before {
   transform: none;
 }
 
+/* ---------- cyberpunk synthwave panel (intro) ---------- */
+.cripto-root .cyber {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--c-void);
+}
+/* night sky + horizon glow */
+.cripto-root .cyber::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background:
+    radial-gradient(
+      110% 80% at 50% 56%,
+      rgba(192, 132, 252, 0.35),
+      transparent 60%
+    ),
+    linear-gradient(180deg, #0c0a12 0%, #1a1330 55%, #2a1740 100%);
+}
+/* iridescent retro sun (Ethereum gradient + hue drift) */
+.cripto-root .cyber-sun {
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  width: 40%;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  z-index: -2;
+  background: linear-gradient(
+    165deg,
+    #7dd3fc 0%,
+    #818cf8 32%,
+    #c084fc 58%,
+    #f0abfc 80%,
+    #5eead4 100%
+  );
+  box-shadow: 0 0 40px rgba(192, 132, 252, 0.5),
+    0 0 100px rgba(129, 140, 248, 0.3);
+  animation: cyber-sun 6s ease-in-out infinite, c-holo 9s linear infinite;
+}
+/* horizontal slits across the sun's lower half */
+.cripto-root .cyber-sun::after {
+  content: "";
+  position: absolute;
+  inset: 52% 0 0 0;
+  border-radius: 0 0 999px 999px;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0 3px,
+    #0c0a12 3px 7px
+  );
+}
+@keyframes cyber-sun {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-7px);
+  }
+}
+/* perspective grid floor scrolling toward the viewer */
+.cripto-root .cyber-grid {
+  position: absolute;
+  left: -60%;
+  right: -60%;
+  bottom: -2px;
+  height: 50%;
+  z-index: -1;
+  background-image: linear-gradient(
+      to right,
+      rgba(167, 212, 42, 0.55) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to top, rgba(167, 212, 42, 0.55) 1px, transparent 1px);
+  background-size: 44px 44px;
+  transform: perspective(180px) rotateX(64deg);
+  transform-origin: bottom center;
+  animation: cyber-grid 1.5s linear infinite;
+}
+@keyframes cyber-grid {
+  to {
+    background-position: 0 44px;
+  }
+}
+/* CRT scanlines + occasional flicker */
+.cripto-root .cyber-scan {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.06) 0 1px,
+    transparent 1px 3px
+  );
+  mix-blend-mode: overlay;
+  animation: cyber-flicker 5s steps(1) infinite;
+}
+@keyframes cyber-flicker {
+  0%,
+  94%,
+  100% {
+    opacity: 0.55;
+  }
+  95% {
+    opacity: 0.25;
+  }
+  97% {
+    opacity: 0.8;
+  }
+}
+.cripto-root .cyber-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+  font-family: var(--c-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--c-white);
+  opacity: 0.75;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .cripto-root *,
   .cripto-root *::before,

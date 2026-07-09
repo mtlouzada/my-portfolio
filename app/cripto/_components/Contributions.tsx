@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import type { CSSProperties } from "react";
 import Reveal from "@/components/Reveal";
 import { contributions } from "../_data";
@@ -34,10 +35,8 @@ export default function Contributions() {
         <div className="border-t-2 border-[var(--c-ink)]">
           {contributions.map((c) => (
             <Reveal key={c.title}>
-              <a
-                href={c.href}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href={`/cripto/builds/${c.slug}`}
                 className="row-link group flex items-center gap-4 md:gap-8 py-5 md:py-6 px-2 md:px-4 border-b-2 border-[var(--c-ink)]"
                 style={
                   {
@@ -65,7 +64,7 @@ export default function Contributions() {
                 <span className="row-arrow c-mono text-lg group-hover:text-[var(--row-fg)] transition-colors">
                   ↗
                 </span>
-              </a>
+              </Link>
             </Reveal>
           ))}
         </div>

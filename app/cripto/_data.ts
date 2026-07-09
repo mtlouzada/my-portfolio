@@ -27,52 +27,64 @@ export const stack = [
   "VERCEL",
 ];
 
+export type BuildSlug = "skatehive" | "community-org" | "gnars" | "builderdao";
+
 export type Contribution = {
   index: string;
+  slug: BuildSlug; // internal detail page: /cripto/builds/[slug]
   title: string;
   meta: string;
   role: "contributor" | "dev"; // translated via _i18n.ts
-  href: string;
+  href: string; // external project link (shown on the detail page)
   accent: string; // css var name
   font: "display" | "serif" | "mono";
+  stack: string[]; // tech tags (not translated)
 };
 
 export const contributions: Contribution[] = [
   {
     index: "01",
+    slug: "skatehive",
     title: "SkateHive",
     meta: "OPEN SOURCE · WEB3",
     role: "contributor",
     href: "https://skatehive.app/",
     accent: "--c-red",
     font: "serif",
+    stack: ["React", "TypeScript", "Next.js", "Hive"],
   },
   {
     index: "02",
+    slug: "community-org",
     title: "Community Org",
     meta: "PLATFORM · 2025",
     role: "dev",
     href: "https://community-org-beta.vercel.app/",
     accent: "--c-blue",
     font: "mono",
+    stack: ["Next.js", "TypeScript", "Vercel"],
   },
   {
     index: "03",
+    slug: "gnars",
     title: "Gnars",
     meta: "SKATE DAO · ONCHAIN",
     role: "contributor",
     href: "https://gnars.com",
     accent: "--c-teal",
     font: "display",
+    stack: ["React", "wagmi", "viem", "Nouns"],
   },
   {
     index: "04",
+    slug: "builderdao",
     title: "BuilderDAO",
     meta: "NOUNS BUILDER · DAO",
     role: "contributor",
     href: "https://nouns.build",
     accent: "--c-lime",
     font: "mono",
+    stack: ["Next.js", "TypeScript", "Solidity"],
   },
 ];
 
