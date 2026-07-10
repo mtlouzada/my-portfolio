@@ -7,8 +7,14 @@ import Nfts from "./_components/Nfts";
 import CriptoContact from "./_components/CriptoContact";
 import CriptoFooter from "./_components/CriptoFooter";
 import { services, stack } from "./_data";
+import { getGallery } from "./_nfts";
 
-export default function CriptoPage() {
+// Re-pull the wallet at most once an hour (ISR).
+export const revalidate = 3600;
+
+export default async function CriptoPage() {
+  const gallery = await getGallery();
+
   return (
     <>
       <CriptoNav />
@@ -26,7 +32,7 @@ export default function CriptoPage() {
           <Ticker items={stack} duration={24} reverse sep="✦" />
         </div>
 
-        <Nfts />
+        <Nfts items={gallery.items} isLive={gallery.isLive} />
         <CriptoContact />
       </main>
       <CriptoFooter />

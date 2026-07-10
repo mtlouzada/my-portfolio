@@ -15,6 +15,7 @@
   --c-teal: #1e5f54;
   --c-lime: #b7e51f;
   --c-blue: #2f4fd6;
+  --c-gold: #eb9309; /* Gnars yellow-orange — bright accent, pairs with on-bright text */
   --c-void: #16130d; /* sections that stay dark in both themes */
   --c-white: #f5f2e9; /* text on dark/saturated accents (red/teal/blue/void) */
   --c-on-bright: #141109; /* text on bright accents (lime) — dark in both themes */
@@ -46,6 +47,7 @@ html[data-ctheme="dark"] .cripto-root {
   --c-teal: #33a08b;
   --c-lime: #a7d42a;
   --c-blue: #5c73f2;
+  --c-gold: #ffb02e;
   --c-white: #f5f2e9;
   --c-field-bg: #100d09;
 }
@@ -117,6 +119,21 @@ html[data-ctheme="dark"] .cripto-root::before {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--c-ink-soft);
+}
+
+/* blinking terminal caret — used in the matrix (SkateHive) header */
+.cripto-root .c-caret {
+  animation: c-blink 1.1s steps(1) infinite;
+}
+@keyframes c-blink {
+  50% {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cripto-root .c-caret {
+    animation: none;
+  }
 }
 
 /* ---------- retro window chrome ---------- */

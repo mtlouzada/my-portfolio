@@ -42,7 +42,7 @@ export default function Contributions() {
                   {
                     ["--row-accent" as string]: `var(${c.accent})`,
                     ["--row-fg" as string]:
-                      c.accent === "--c-lime"
+                      c.accent === "--c-lime" || c.accent === "--c-gold"
                         ? "var(--c-on-bright)"
                         : "var(--c-white)",
                   } as CSSProperties

@@ -51,14 +51,29 @@ const en = {
     overviewLabel: "Overview",
     contributionsLabel: "What I did",
     stackLabel: "Stack",
+    builtOnHive: "Built on Hive",
+    builtOnNouns: "Powered by Nouns",
+    dragHint: "drag to spin ⌐◨-◨",
+    prsLabel: "Merged pull requests",
+    learnedLabel: "What I learned",
+    evidenceLabel: "Evidence",
+    evidenceHint: "Screenshots & GIFs of the work.",
+    evidenceEmpty: "screenshot / gif",
     details: {
       skatehive: {
         overview:
           "International open-source platform connecting the skateboarding community through web3. Built on Hive, it lets skaters post, earn and organize onchain.",
         points: [
-          "Front-end features in React / Next.js and TypeScript",
-          "Onchain interactions with the Hive blockchain",
-          "Bug fixes, reviews and community tooling",
+          "Built multi-account Hive login (PeakD-style) — switch identities without re-authenticating",
+          "Hardened the onchain swap: chain-id fix and graceful handling of user-rejected transactions",
+          "Shipped a global command palette — bug reports, popular commands and resizable modals",
+          "Guided onboarding for new skaters, plus the Mobile App docs (EN + PT-BR)",
+        ],
+        learned: [
+          "Onchain auth: multi-account, key-based sessions where users custody their own keys (Hive Keychain + dhive)",
+          "The EVM transaction lifecycle with wagmi / viem — chain-id switching, ERC-20, and rejected / failed txs",
+          "Reliable web3 UX lives in the unhappy paths — wrong network, rejected signatures, failed uploads",
+          "Shipping async in an open-source / DAO community — small, reviewable PRs merged to production",
         ],
       },
       "community-org": {
@@ -73,8 +88,16 @@ const en = {
         overview:
           "Onchain skate DAO in the Nouns ecosystem. Gnars funds skaters and creators through a treasury governed onchain.",
         points: [
-          "Contributions to the dApp front end",
-          "Wallet and contract reads with wagmi / viem",
+          "Built the send-NFTs proposal flow — multi-select treasury NFTs into a single onchain proposal",
+          "Improved proposal creation: Markdown descriptions, duplicate detection and inline validation",
+          "Migrated the archive's broken images to IPFS / Pinata",
+          "Nounish UI: 3D noggles on mobile, a unified footer and the interactive hero TV",
+        ],
+        learned: [
+          "Nouns-protocol governance frontend: composing onchain proposals, including treasury NFT transfers",
+          "Reading DAO state with wagmi / viem and rendering proposals safely (Markdown, validation, dedupe)",
+          "Decentralized media: migrating and serving assets over IPFS / Pinata",
+          "3D on the web with three.js / react-three-fiber — the NogglesRail above is the model from gnars.com, lazy-loaded so it stays off other routes",
         ],
       },
       builderdao: {
@@ -91,10 +114,14 @@ const en = {
     label: "[ 03 — wallet ]",
     title: "The onchain gallery.",
     sampleTag: "◆ sample data — plug wallet",
+    liveTag: "◆ live · louzoshi.eth",
     notePre: "> This grid uses sample data. To display real NFTs, wire the ",
     noteBold: "louzoshi.eth",
     notePost:
       " wallet to an API (Alchemy / OpenSea / Zora) — the layout is ready to receive items dynamically.",
+    liveNotePre: "> Pulled live from the ",
+    liveNotePost:
+      " wallet via Alchemy, refreshed hourly. Click a piece to view it on OpenSea.",
   },
   contact: {
     label: "[ 04 — reach_out.sh ]",
@@ -156,14 +183,29 @@ const pt: CriptoDictionary = {
     overviewLabel: "Visão geral",
     contributionsLabel: "O que eu fiz",
     stackLabel: "Stack",
+    builtOnHive: "Feito na Hive",
+    builtOnNouns: "Feito com Nouns",
+    dragHint: "arraste pra girar ⌐◨-◨",
+    prsLabel: "Pull requests (merged)",
+    learnedLabel: "O que eu aprendi",
+    evidenceLabel: "Evidências",
+    evidenceHint: "Screenshots e GIFs do trabalho.",
+    evidenceEmpty: "screenshot / gif",
     details: {
       skatehive: {
         overview:
           "Plataforma open-source internacional que conecta a comunidade do skate via web3. Construída sobre a Hive, permite que skatistas postem, ganhem e se organizem onchain.",
         points: [
-          "Features de front-end em React / Next.js e TypeScript",
-          "Interações onchain com a blockchain Hive",
-          "Correções, reviews e ferramentas para a comunidade",
+          "Login multi-conta na Hive (estilo PeakD) — trocar de identidade sem reautenticar",
+          "Deixei o swap onchain mais robusto: correção de chain-id e tratamento amigável de transação rejeitada",
+          "Command palette global — report de bugs, comandos populares e modais redimensionáveis",
+          "Onboarding guiado pra novos skatistas, e a doc do Mobile App (EN + PT-BR)",
+        ],
+        learned: [
+          "Auth onchain: sessões multi-conta baseadas em chave, com o usuário dono das próprias chaves (Hive Keychain + dhive)",
+          "O ciclo de vida de transação EVM com wagmi / viem — troca de chain-id, ERC-20 e txs rejeitadas / falhas",
+          "UX web3 confiável mora nos unhappy paths — rede errada, assinatura rejeitada, upload falho",
+          "Entregar de forma async numa comunidade open-source / DAO — PRs pequenos e revisáveis em produção",
         ],
       },
       "community-org": {
@@ -178,8 +220,16 @@ const pt: CriptoDictionary = {
         overview:
           "DAO de skate onchain no ecossistema Nouns. A Gnars financia skatistas e criadores por meio de uma tesouraria governada onchain.",
         points: [
-          "Contribuições no front-end do dApp",
-          "Leitura de carteiras e contratos com wagmi / viem",
+          "Fluxo de envio de NFTs em propostas — multi-seleção de NFTs da tesouraria numa proposta onchain",
+          "Melhorias na criação de propostas: descrição em Markdown, detecção de duplicadas e validação inline",
+          "Migrei as imagens quebradas do arquivo pra IPFS / Pinata",
+          "UI Nounish: noggles 3D no mobile, footer unificado e a TV interativa do hero",
+        ],
+        learned: [
+          "Frontend de governança no protocolo Nouns: compor propostas onchain, incluindo transferência de NFTs da tesouraria",
+          "Ler estado da DAO com wagmi / viem e renderizar propostas com segurança (Markdown, validação, dedupe)",
+          "Mídia descentralizada: migrar e servir assets via IPFS / Pinata",
+          "3D na web com three.js / react-three-fiber — o NogglesRail aí de cima é o modelo do gnars.com, carregado lazy pra não pesar nas outras rotas",
         ],
       },
       builderdao: {
@@ -196,10 +246,14 @@ const pt: CriptoDictionary = {
     label: "[ 03 — wallet ]",
     title: "A galeria onchain.",
     sampleTag: "◆ dados de exemplo — plugar wallet",
+    liveTag: "◆ ao vivo · louzoshi.eth",
     notePre: "> Esta grade usa dados de exemplo. Para exibir NFTs reais, ligue a wallet ",
     noteBold: "louzoshi.eth",
     notePost:
       " a uma API (Alchemy / OpenSea / Zora) — o layout já está pronto para receber os itens dinamicamente.",
+    liveNotePre: "> Puxado ao vivo da wallet ",
+    liveNotePost:
+      " via Alchemy, atualizado a cada hora. Clique numa peça para ver na OpenSea.",
   },
   contact: {
     label: "[ 04 — reach_out.sh ]",
