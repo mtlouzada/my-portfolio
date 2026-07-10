@@ -36,7 +36,21 @@ export default function BuildDetail({ slug }: { slug: BuildSlug }) {
   const build = contributions.find((c) => c.slug === slug)!;
   const detail = b.details[slug] as DetailCopy;
   const flavor = build.flavor;
+  // bright accents (lime/gold) wash out as small text on paper — render small
+  // marks in ink and fill the PR badge instead (mirrors Contributions' fg rule)
+  const bright = build.accent === "--c-lime" || build.accent === "--c-gold";
   const accent = { color: `var(${build.accent})` } as CSSProperties;
+  const markStyle = bright ? undefined : accent;
+  const badgeStyle = bright
+    ? ({
+        background: `var(${build.accent})`,
+        borderColor: "var(--c-ink)",
+        color: "var(--c-on-bright)",
+      } as CSSProperties)
+    : ({
+        borderColor: `var(${build.accent})`,
+        color: `var(${build.accent})`,
+      } as CSSProperties);
 
   const metaLine = `${build.meta} · ${b.roles[build.role]}`;
 
@@ -210,7 +224,7 @@ export default function BuildDetail({ slug }: { slug: BuildSlug }) {
                   key={p}
                   className="c-mono text-[13px] flex items-start gap-3 border-b border-[var(--c-ink)]/15 pb-3 last:border-0"
                 >
-                  <span className="mt-[2px]" style={accent}>
+                  <span className="mt-[2px]" style={markStyle}>
                     ▸
                   </span>
                   {p}
@@ -226,7 +240,9 @@ export default function BuildDetail({ slug }: { slug: BuildSlug }) {
                   {flavor.prStats && (
                     <span className="c-mono text-[11px] text-[var(--c-ink-soft)] whitespace-nowrap">
                       {flavor.prStats.total} PRs ·{" "}
-                      <span style={accent}>{flavor.prStats.merged} merged</span>
+                      <span className="font-semibold" style={markStyle}>
+                        {flavor.prStats.merged} merged
+                      </span>
                     </span>
                   )}
                 </div>
@@ -241,10 +257,7 @@ export default function BuildDetail({ slug }: { slug: BuildSlug }) {
                       >
                         <span
                           className="c-mono text-[8px] tracking-[0.12em] uppercase px-1.5 py-1 border-2 whitespace-nowrap"
-                          style={{
-                            borderColor: `var(${build.accent})`,
-                            color: `var(${build.accent})`,
-                          }}
+                          style={badgeStyle}
                         >
                           {pr.merged ? "merged" : "pr"}
                         </span>
@@ -271,7 +284,7 @@ export default function BuildDetail({ slug }: { slug: BuildSlug }) {
                       key={l}
                       className="c-mono text-[13px] leading-[1.6] flex items-start gap-3"
                     >
-                      <span className="mt-[2px] font-semibold" style={accent}>
+                      <span className="mt-[2px] font-semibold" style={markStyle}>
                         →
                       </span>
                       {l}

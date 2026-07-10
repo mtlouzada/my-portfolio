@@ -80,7 +80,7 @@ export const contributions: Contribution[] = [
     meta: "OPEN SOURCE · WEB3",
     role: "contributor",
     href: "https://skatehive.app/",
-    accent: "--c-red",
+    accent: "--c-lime",
     font: "serif",
     stack: ["React", "TypeScript", "Next.js", "wagmi", "viem", "Hive", "Keychain"],
     flavor: {
@@ -244,7 +244,7 @@ export const contributions: Contribution[] = [
     meta: "NOUNS BUILDER · DAO",
     role: "contributor",
     href: "https://nouns.build",
-    accent: "--c-lime",
+    accent: "--c-red",
     font: "mono",
     stack: ["Next.js", "TypeScript", "Solidity"],
   },
