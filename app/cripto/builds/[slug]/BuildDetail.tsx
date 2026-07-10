@@ -189,6 +189,46 @@ export default function BuildDetail({ slug }: { slug: BuildSlug }) {
                 {b.dragHint}
               </span>
             </div>
+          ) : flavor?.header === "blueprint" ? (
+            /* deep-blue "blueprint" header — Community Org flavor (built from scratch) */
+            <div className="relative isolate overflow-hidden p-6 md:p-10 min-h-[240px] md:min-h-[300px] flex flex-col justify-end bg-[#16255e]">
+              {/* technical drawing grid: fine cells + stronger guide lines */}
+              <div
+                aria-hidden
+                className="absolute inset-0 -z-10"
+                style={{
+                  backgroundImage: [
+                    "linear-gradient(rgba(245,242,233,0.07) 1px, transparent 1px)",
+                    "linear-gradient(90deg, rgba(245,242,233,0.07) 1px, transparent 1px)",
+                    "linear-gradient(rgba(245,242,233,0.13) 1px, transparent 1px)",
+                    "linear-gradient(90deg, rgba(245,242,233,0.13) 1px, transparent 1px)",
+                  ].join(","),
+                  backgroundSize: "24px 24px, 24px 24px, 120px 120px, 120px 120px",
+                }}
+              />
+              {/* bottom fade so the title reads cleanly */}
+              <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#16255e] via-transparent to-transparent" />
+
+              <div className="flex items-center gap-4">
+                <span className="c-mono text-[13px] text-[var(--c-white)]/50">
+                  {build.index}
+                </span>
+                <span className="c-mono text-[10px] tracking-[0.14em] uppercase text-[var(--c-white)]/50">
+                  {metaLine}
+                </span>
+              </div>
+
+              <h1
+                className={`mt-4 text-[clamp(36px,8vw,80px)] leading-[0.95] ${fontClass[build.font]}`}
+              >
+                <span className="text-[var(--c-white)]">
+                  {flavor.titleParts?.[0] ?? build.title}
+                </span>
+                {flavor.titleParts?.[1] && (
+                  <span className="text-[#8fa5ff]">{flavor.titleParts[1]}</span>
+                )}
+              </h1>
+            </div>
           ) : (
             /* default paper header */
             <div className="p-6 md:p-10 bg-[var(--c-paper)]">

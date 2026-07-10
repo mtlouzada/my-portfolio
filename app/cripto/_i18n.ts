@@ -78,10 +78,17 @@ const en = {
       },
       "community-org": {
         overview:
-          "Website for Community Org, a tech company connecting communities and organizations through digital solutions.",
+          "Commissioned website for Community Org, a tech company connecting communities and organizations. Built solo, end to end, and delivered to the client — this deploy is the live demo.",
         points: [
-          "Built the site with Next.js and TypeScript",
-          "Responsive UI and deploy on Vercel",
+          "Built the entire site from scratch (0→1) with Vite, React and TypeScript",
+          "Implemented a full redesign through a structured refactor — new visual system, same product",
+          "Conversion flows: plan modals with WhatsApp contact and Calendly scheduling",
+          "Dark mode, scroll-triggered animations and mobile-first UX",
+        ],
+        learned: [
+          "Owning a product end to end — architecture, UI, deploy and months of iteration",
+          "Turning a redesign into code: refactoring a working codebase without breaking it",
+          "Conversion-focused UI — scheduling and chat entry points that turn visits into contacts",
         ],
       },
       gnars: {
@@ -210,10 +217,17 @@ const pt: CriptoDictionary = {
       },
       "community-org": {
         overview:
-          "Site da Community Org, empresa de tecnologia que conecta comunidades e organizações por meio de soluções digitais.",
+          "Site sob encomenda para a Community Org, empresa de tecnologia que conecta comunidades e organizações. Construído solo, de ponta a ponta, e entregue ao cliente — este deploy é a demo ao vivo.",
         points: [
-          "Desenvolvi o site com Next.js e TypeScript",
-          "UI responsiva e deploy na Vercel",
+          "Construí o site inteiro do zero (0→1) com Vite, React e TypeScript",
+          "Implementei um redesign completo via refatoração estruturada — novo sistema visual, mesmo produto",
+          "Fluxos de conversão: modais de planos com contato via WhatsApp e agendamento Calendly",
+          "Dark mode, animações on-scroll e UX mobile-first",
+        ],
+        learned: [
+          "Ser dono de um produto de ponta a ponta — arquitetura, UI, deploy e meses de iteração",
+          "Transformar um redesign em código: refatorar uma base funcionando sem quebrá-la",
+          "UI focada em conversão — agendamento e canais de contato que transformam visita em lead",
         ],
       },
       gnars: {

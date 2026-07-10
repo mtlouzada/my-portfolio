@@ -50,7 +50,7 @@ export type BuildPr = {
 // Optional per-build detail treatment. Only skatehive uses it today; the other
 // builds render the plain (paper) header. Keeps the shared component generic.
 export type BuildFlavor = {
-  header?: "matrix" | "noggles"; // special header treatment (else plain paper)
+  header?: "matrix" | "noggles" | "blueprint"; // special header treatment (else plain paper)
   titleParts?: [string, string]; // two-font split, e.g. ["Skate", "Hive"]
   poweredBy?: "hive" | "nouns"; // subtle "Built on X / Powered by X" glyph line
   evidenceSlots?: number; // number of empty media slots when `media` is empty
@@ -154,12 +154,17 @@ export const contributions: Contribution[] = [
     index: "02",
     slug: "community-org",
     title: "Community Org",
-    meta: "PLATFORM · 2025",
+    meta: "CLIENT WORK · 2025",
     role: "dev",
     href: "https://community-org-beta.vercel.app/",
     accent: "--c-blue",
     font: "mono",
-    stack: ["Next.js", "TypeScript", "Vercel"],
+    stack: ["Vite", "React", "TypeScript", "SCSS", "Tailwind", "Vercel"],
+    flavor: {
+      header: "blueprint",
+      titleParts: ["Community ", "Org"],
+      evidenceSlots: 3, // before / after screenshots of the redesign
+    },
   },
   {
     index: "03",
