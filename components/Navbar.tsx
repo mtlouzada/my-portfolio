@@ -118,7 +118,10 @@ export default function Navbar() {
           <LangToggle className="hidden sm:flex" />
 
           <button
-            onClick={toggle}
+            onClick={(e) => {
+              const r = e.currentTarget.getBoundingClientRect();
+              toggle({ x: r.left + r.width / 2, y: r.top + r.height / 2 });
+            }}
             aria-label={t.nav.toggleTheme}
             className="w-9 h-9 rounded-full border border-line text-fg flex items-center justify-center hover:bg-elev transition-colors"
           >
