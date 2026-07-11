@@ -58,7 +58,7 @@ function EthMark({ id, className = "" }: { id: string; className?: string }) {
 
 function Logo() {
   return (
-    <Link href="#top" aria-label="Início" className="group flex items-center gap-2.5">
+    <Link href="/" aria-label="Início" className="group flex items-center gap-2.5">
       <span className="grid place-items-center w-[34px] h-[34px] rounded-[11px] bg-fg text-bg font-bold text-[13px] tracking-[-0.03em] transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-105">
         ML
       </span>

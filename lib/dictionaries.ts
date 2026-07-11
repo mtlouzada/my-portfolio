@@ -3,9 +3,9 @@ export type Lang = "en" | "pt";
 const en = {
   nav: {
     links: [
-      { label: "About", href: "#sobre" },
-      { label: "Projects", href: "#projetos" },
-      { label: "Contact", href: "#contato" },
+      { label: "About", href: "/#sobre" },
+      { label: "Projects", href: "/#projetos" },
+      { label: "Contact", href: "/#contato" },
     ],
     switchLang: "Mudar para português",
     toggleTheme: "Toggle theme",
@@ -41,19 +41,71 @@ const en = {
     title: "Projects",
     viewProject: "View project",
     descriptions: {
-      skatehive:
-        "International open source project focused on connecting the skateboarding community through technology. I contribute actively to its development.",
-      communityOrg:
-        "Website for Community Org, a tech company focused on connecting communities and organizations through digital solutions.",
+      wilbor:
+        "Website and admin dashboard for Wilbor, an art studio — live on the client's own domain. I build and maintain both the public portfolio and the content dashboard behind it.",
+      trustFinance:
+        "Personal-finance platform built end to end in .NET — ASP.NET Core REST API with SQL Server, automated tests and CI, docker-compose, and a React web client.",
+      domainInspector:
+        "Fullstack technical challenge, completed: a domain inspection tool with a C# back end and a web client.",
     },
     personal: {
       label: "Self-taught",
       title: "Personal projects",
-      inDevelopment: "In development",
       titles: {
-        finance: "Finance Manager",
+        blog: "Blog CMS API",
         tasks: "Task Manager",
-        bots: "Bots & Agents",
+        auth: "SecureSign · Google OAuth",
+      },
+    },
+    detail: {
+      back: "← All projects",
+      contextLabel: "Context",
+      roleLabel: "What I did",
+      stackLabel: "Stack",
+      outcomeLabel: "Outcome",
+      galleryLabel: "Screenshots",
+      liveCta: "Visit live site ↗",
+      codeCta: "View code ↗",
+      contactTitle: "Want the deeper story?",
+      contactBody:
+        "I'm happy to walk through the decisions, trade-offs and code on a call.",
+      contactCta: "Get in touch",
+      cases: {
+        wilbor: {
+          context:
+            "Wilbor is an art and skate-culture studio from Rio de Janeiro — video, murals, illustration and exhibitions since 1997. The studio needed its portfolio properly online and a way to manage that content without touching code.",
+          role: [
+            "Develop and maintain the public portfolio/blog with Next.js 15, React 19 and TypeScript",
+            "Redesigned the admin dashboard: authenticated login, content cards, gallery and contact management",
+            "Shipped production fixes end to end — image carousels, fullscreen views and sharing flows (9 merged PRs across both repos)",
+          ],
+          outcome:
+            "The site runs in production on the studio's own domain (wilbor.studio), with content managed through the dashboard.",
+        },
+        trustFinance: {
+          context:
+            "A personal-finance platform — users, categories and transactions — that I build and maintain as if it were a production service, to keep my .NET stack sharp end to end.",
+          role: [
+            "REST API in ASP.NET Core (.NET 8) with SQL Server and Entity Framework",
+            "Dedicated test project, gated by CI on GitHub Actions — build and tests run on every push",
+            "docker-compose brings up SQL Server 2022 with a healthcheck: one command to run locally",
+            "React (Vite) web client consuming the API",
+          ],
+          outcome:
+            "The repo mirrors how I'd ship a real service — tested, containerized and CI-gated, not a tutorial project.",
+        },
+        domainInspector: {
+          context:
+            "A fullstack technical challenge from a hosting company's hiring process, completed: a web API that consolidates DNS and WHOIS information for any domain — name servers, A record and hosting data.",
+          role: [
+            "C# / ASP.NET Core back end querying DNS servers and the WHOIS protocol",
+            "MySQL persistence with Entity Framework",
+            "TTL-based caching: repeat lookups are served from the database while the TTL is valid, instead of hitting external services again",
+            "Front end bundled with Webpack / Babel",
+          ],
+          outcome:
+            "Delivered complete, designed around separation of concerns and testability.",
+        },
       },
     },
   },
@@ -76,9 +128,9 @@ export type Dictionary = typeof en;
 const pt: Dictionary = {
   nav: {
     links: [
-      { label: "Sobre", href: "#sobre" },
-      { label: "Projetos", href: "#projetos" },
-      { label: "Contato", href: "#contato" },
+      { label: "Sobre", href: "/#sobre" },
+      { label: "Projetos", href: "/#projetos" },
+      { label: "Contato", href: "/#contato" },
     ],
     switchLang: "Switch to English",
     toggleTheme: "Alternar tema",
@@ -114,19 +166,71 @@ const pt: Dictionary = {
     title: "Projetos",
     viewProject: "Ver projeto",
     descriptions: {
-      skatehive:
-        "Projeto open source internacional focado em conectar a comunidade do skate por meio da tecnologia. Contribuo ativamente no desenvolvimento.",
-      communityOrg:
-        "Site da Community Org, empresa de tecnologia focada em conectar comunidades e organizações por meio de soluções digitais.",
+      wilbor:
+        "Site e dashboard administrativo do Wilbor, estúdio de arte — no ar no domínio do próprio cliente. Desenvolvo e mantenho o portfólio público e o painel de conteúdo por trás dele.",
+      trustFinance:
+        "Plataforma de finanças pessoais construída de ponta a ponta em .NET — API REST em ASP.NET Core com SQL Server, testes automatizados e CI, docker-compose, e cliente web em React.",
+      domainInspector:
+        "Desafio técnico fullstack, finalizado: ferramenta de inspeção de domínios com back-end em C# e cliente web.",
     },
     personal: {
       label: "Autodidata",
       title: "Projetos autorais",
-      inDevelopment: "Em desenvolvimento",
       titles: {
-        finance: "Gestor de Finanças",
+        blog: "API de Blog (CMS)",
         tasks: "Gestão de Tarefas",
-        bots: "Bots & Agentes",
+        auth: "SecureSign · Google OAuth",
+      },
+    },
+    detail: {
+      back: "← Todos os projetos",
+      contextLabel: "Contexto",
+      roleLabel: "O que eu fiz",
+      stackLabel: "Stack",
+      outcomeLabel: "Resultado",
+      galleryLabel: "Screenshots",
+      liveCta: "Ver site no ar ↗",
+      codeCta: "Ver código ↗",
+      contactTitle: "Quer a história completa?",
+      contactBody:
+        "Posso destrinchar as decisões, trade-offs e o código numa conversa.",
+      contactCta: "Entrar em contato",
+      cases: {
+        wilbor: {
+          context:
+            "O Wilbor é um estúdio de arte e cultura do skate do Rio de Janeiro — vídeo, murais, ilustração e exposições desde 1997. O estúdio precisava do portfólio bem apresentado online e de um jeito de gerenciar esse conteúdo sem mexer em código.",
+          role: [
+            "Desenvolvo e mantenho o portfólio/blog público com Next.js 15, React 19 e TypeScript",
+            "Redesenhei o dashboard administrativo: login autenticado, cards de conteúdo, galeria e gestão de contatos",
+            "Correções em produção de ponta a ponta — carrosséis de imagem, tela cheia e fluxos de compartilhamento (9 PRs mergeados nos dois repos)",
+          ],
+          outcome:
+            "O site roda em produção no domínio do próprio estúdio (wilbor.studio), com o conteúdo gerenciado pelo dashboard.",
+        },
+        trustFinance: {
+          context:
+            "Plataforma de finanças pessoais — usuários, categorias e transações — que eu construo e mantenho como se fosse um serviço em produção, pra manter minha stack .NET afiada de ponta a ponta.",
+          role: [
+            "API REST em ASP.NET Core (.NET 8) com SQL Server e Entity Framework",
+            "Projeto de testes dedicado, travado por CI no GitHub Actions — build e testes rodam a cada push",
+            "docker-compose sobe o SQL Server 2022 com healthcheck: um comando pra rodar local",
+            "Cliente web em React (Vite) consumindo a API",
+          ],
+          outcome:
+            "O repo espelha como eu entregaria um serviço real — testado, containerizado e com CI, não um projeto de tutorial.",
+        },
+        domainInspector: {
+          context:
+            "Desafio técnico fullstack de um processo seletivo (empresa de hospedagem), finalizado: uma API web que consolida informações de DNS e WHOIS de qualquer domínio — name servers, registro A e dados de hospedagem.",
+          role: [
+            "Back-end em C# / ASP.NET Core consultando servidores DNS e o protocolo WHOIS",
+            "Persistência em MySQL com Entity Framework",
+            "Cache com TTL: consultas repetidas são servidas do banco enquanto o TTL vale, sem bater de novo nos serviços externos",
+            "Front-end empacotado com Webpack / Babel",
+          ],
+          outcome:
+            "Entregue completo, desenhado em torno de separação de responsabilidades e testabilidade.",
+        },
       },
     },
   },

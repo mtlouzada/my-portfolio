@@ -1,25 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import Reveal from "./Reveal";
 import { useLanguage } from "@/lib/useLanguage";
-
-const projects = [
-  {
-    key: "skatehive" as const,
-    title: "SkateHive",
-    tag: "open-source",
-    image: "/imgs/sk8hive-filter2.png",
-    href: "https://skatehive.app/",
-  },
-  {
-    key: "communityOrg" as const,
-    title: "Community Org",
-    tag: "web",
-    image: "/imgs/cmo-printfilter.png",
-    href: "https://community-org-beta.vercel.app/",
-  },
-];
+import { projects } from "@/lib/projects";
 
 export default function Projects() {
   const { t } = useLanguage();
@@ -45,10 +30,8 @@ export default function Projects() {
             }`}
           >
             <div className="flex-1 min-w-0 basis-[400px] w-full">
-              <a
-                href={p.href}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href={`/projects/${p.slug}`}
                 className="block rounded-3xl overflow-hidden shadow-elevated transition-transform duration-500 hover:-translate-y-1.5"
               >
                 <div className="relative w-full aspect-[16/10]">
@@ -60,7 +43,7 @@ export default function Projects() {
                     className="object-cover"
                   />
                 </div>
-              </a>
+              </Link>
             </div>
 
             <div className="flex-1 min-w-0 basis-[320px]">
@@ -73,14 +56,12 @@ export default function Projects() {
               <p className="mt-4 text-[17px] leading-[1.6] text-muted max-w-[440px]">
                 {t.projects.descriptions[p.key]}
               </p>
-              <a
-                href={p.href}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href={`/projects/${p.slug}`}
                 className="inline-flex items-center gap-1.5 text-fg font-medium text-[15px] mt-[26px] hover:text-accent transition-colors"
               >
-                {t.projects.viewProject} <span className="text-[13px]">↗</span>
-              </a>
+                {t.projects.viewProject} <span className="text-[13px]">→</span>
+              </Link>
             </div>
           </Reveal>
         ))}
@@ -93,19 +74,22 @@ export default function Projects() {
 
 const personal = [
   {
-    key: "finance" as const,
-    stack: ".NET · React",
-    href: "https://github.com/mtlouzada/Trust-Finance",
+    key: "blog" as const,
+    tag: "REST API",
+    stack: "ASP.NET Core · JWT · SQL Server",
+    href: "https://github.com/mtlouzada/Blog",
   },
   {
     key: "tasks" as const,
-    stack: ".NET · React",
-    href: "https://github.com/mtlouzada/fullstack-challenge",
+    tag: "MVC",
+    stack: ".NET · ASP.NET MVC",
+    href: "https://github.com/mtlouzada/task-manager",
   },
   {
-    key: "bots" as const,
-    stack: "Node.js · Discord API",
-    href: "https://github.com/mtlouzada/bot-discord",
+    key: "auth" as const,
+    tag: "auth",
+    stack: "TypeScript · Google OAuth",
+    href: "https://github.com/mtlouzada/secureSign",
   },
 ];
 
@@ -131,7 +115,7 @@ function PersonalProjects() {
           >
             <div className="flex items-center justify-between">
               <span className="font-mono text-[11px] tracking-[0.03em] text-muted px-[9px] py-[5px] rounded-pill border border-line">
-                {t.projects.personal.inDevelopment}
+                {item.tag}
               </span>
               <span className="text-muted text-sm">↗</span>
             </div>
