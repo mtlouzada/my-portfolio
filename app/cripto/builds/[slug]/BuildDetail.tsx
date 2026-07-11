@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 import type { CSSProperties } from "react";
 import CriptoNav from "../../_components/CriptoNav";
 import CriptoFooter from "../../_components/CriptoFooter";
@@ -13,6 +14,10 @@ import MatrixRain from "./MatrixRain";
 // three.js is heavy — mount it lazily, client-only, and only on pages whose
 // flavor asks for it (the #153 lesson: keep wallet/3D stacks off shared routes)
 const NogglesRail3D = dynamic(() => import("./NogglesRail3D"), {
+  ssr: false,
+  loading: () => null,
+});
+const PixelBlast = dynamic(() => import("./PixelBlast"), {
   ssr: false,
   loading: () => null,
 });
@@ -53,6 +58,14 @@ export default function BuildDetail({ slug }: { slug: BuildSlug }) {
       } as CSSProperties);
 
   const metaLine = `${build.meta} · ${b.roles[build.role]}`;
+
+  // skip the WebGL background entirely for reduced-motion users
+  const [noMotion, setNoMotion] = useState(false);
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setNoMotion(true);
+    }
+  }, []);
 
   // subtle "Built on / Powered by" glyph line
   const poweredBy =
@@ -226,6 +239,57 @@ export default function BuildDetail({ slug }: { slug: BuildSlug }) {
                 </span>
                 {flavor.titleParts?.[1] && (
                   <span className="text-[#8fa5ff]">{flavor.titleParts[1]}</span>
+                )}
+              </h1>
+            </div>
+          ) : flavor?.header === "pixelblast" ? (
+            /* dark WebGL pixel header — BuilderDAO flavor, the background from
+               builder-deploy-direct itself (where PR #5 made text readable
+               over it — the scrim gradient below is that same lesson) */
+            <div className="relative isolate overflow-hidden p-6 md:p-10 min-h-[240px] md:min-h-[300px] flex flex-col justify-end bg-[#0a0a0a]">
+              {!noMotion && (
+                <div className="absolute inset-0 -z-10">
+                  <PixelBlast
+                    variant="square"
+                    pixelSize={5}
+                    color="#ff5c3f"
+                    patternScale={2.5}
+                    patternDensity={1.4}
+                    pixelSizeJitter={0.4}
+                    enableRipples
+                    rippleSpeed={0.4}
+                    rippleThickness={0.12}
+                    rippleIntensityScale={1.5}
+                    liquid
+                    liquidStrength={0.12}
+                    liquidRadius={1.2}
+                    liquidWobbleSpeed={5}
+                    speed={0.6}
+                    edgeFade={0}
+                    transparent
+                  />
+                </div>
+              )}
+              {/* readability scrim over the animated background */}
+              <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/55 to-transparent pointer-events-none" />
+
+              <div className="flex items-center gap-4">
+                <span className="c-mono text-[13px] text-[var(--c-white)]/50">
+                  {build.index}
+                </span>
+                <span className="c-mono text-[10px] tracking-[0.14em] uppercase text-[var(--c-white)]/50">
+                  {metaLine}
+                </span>
+              </div>
+
+              <h1
+                className={`mt-4 text-[clamp(36px,8vw,80px)] leading-[0.95] ${fontClass[build.font]}`}
+              >
+                <span className="text-[var(--c-white)]">
+                  {flavor.titleParts?.[0] ?? build.title}
+                </span>
+                {flavor.titleParts?.[1] && (
+                  <span className="text-[#ff5c3f]">{flavor.titleParts[1]}</span>
                 )}
               </h1>
             </div>

@@ -50,7 +50,7 @@ export type BuildPr = {
 // Optional per-build detail treatment. Only skatehive uses it today; the other
 // builds render the plain (paper) header. Keeps the shared component generic.
 export type BuildFlavor = {
-  header?: "matrix" | "noggles" | "blueprint"; // special header treatment (else plain paper)
+  header?: "matrix" | "noggles" | "blueprint" | "pixelblast"; // special header treatment (else plain paper)
   titleParts?: [string, string]; // two-font split, e.g. ["Skate", "Hive"]
   poweredBy?: "hive" | "nouns"; // subtle "Built on X / Powered by X" glyph line
   evidenceSlots?: number; // number of empty media slots when `media` is empty
@@ -251,7 +251,21 @@ export const contributions: Contribution[] = [
     href: "https://nouns.build",
     accent: "--c-red",
     font: "mono",
-    stack: ["Next.js", "TypeScript", "Solidity"],
+    stack: ["Next.js", "TypeScript", "OAuth", "Vercel API", "Nouns"],
+    flavor: {
+      header: "pixelblast",
+      titleParts: ["Builder", "DAO"],
+      evidenceSlots: 3, // wizard screenshot, propdate, presentation frame
+      prs: [
+        {
+          title: "Dark/light mode fixes, readable text over animated background, UX details",
+          repo: "builder-deploy-direct",
+          number: 5,
+          url: "https://github.com/sktbrd/builder-deploy-direct/pull/5",
+          merged: true,
+        },
+      ],
+    },
   },
 ];
 

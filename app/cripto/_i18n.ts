@@ -109,10 +109,17 @@ const en = {
       },
       builderdao: {
         overview:
-          "Nouns Builder is the tooling that lets anyone launch and run an onchain DAO — open-source infrastructure for the Nouns ecosystem.",
+          "Nouns Builder is the tooling that lets anyone launch and run an onchain DAO. I work on Builder Deploy Direct — a DAO-funded, no-code launcher that ships a Builder DAO frontend straight into the user's own GitHub + Vercel accounts.",
         points: [
-          "Open-source contributions to the builder app",
-          "Next.js / TypeScript across the stack",
+          "Refined the milestone-1 frontend: connect dialogs, guided Vercel walkthrough, dark/light fixes",
+          "End-to-end QA of the OAuth → fork → configure → deploy wizard",
+          "Helped write the milestone propdate (HackMD) reporting back to the DAO",
+          "Presented the milestone demo to the community — in English",
+        ],
+        learned: [
+          "The DAO funding lifecycle from the inside: proposal → milestone delivery → propdate accountability",
+          "UX for multi-provider OAuth flows (GitHub App + Vercel) — reducing drop-off in connect steps",
+          "Reporting and presenting in English to an international onchain community",
         ],
       },
     },
@@ -248,10 +255,17 @@ const pt: CriptoDictionary = {
       },
       builderdao: {
         overview:
-          "Nouns Builder é a ferramenta que permite lançar e operar uma DAO onchain — infraestrutura open-source para o ecossistema Nouns.",
+          "Nouns Builder é a ferramenta que permite lançar e operar uma DAO onchain. Eu trabalho no Builder Deploy Direct — launcher no-code financiado pela DAO que publica um frontend de Builder DAO direto nas contas GitHub + Vercel do usuário.",
         points: [
-          "Contribuições open-source no app do builder",
-          "Next.js / TypeScript ao longo da stack",
+          "Refinei o frontend da milestone 1: connect dialogs, walkthrough guiado da Vercel, ajustes de dark/light",
+          "QA end-to-end do wizard OAuth → fork → configuração → deploy",
+          "Ajudei a escrever a propdate da milestone (HackMD) prestando contas à DAO",
+          "Apresentei a demo da milestone pra comunidade — em inglês",
+        ],
+        learned: [
+          "O ciclo de funding de uma DAO por dentro: proposta → entrega de milestone → propdate",
+          "UX de fluxos OAuth multi-provider (GitHub App + Vercel) — reduzindo desistência nos passos de conexão",
+          "Reportar e apresentar em inglês pra uma comunidade onchain internacional",
         ],
       },
     },
