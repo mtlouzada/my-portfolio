@@ -1,6 +1,7 @@
 "use client";
 
 import Reveal from "@/components/Reveal";
+import BaseWave from "./BaseWave";
 import CountUp from "./CountUp";
 import { useLanguage } from "@/lib/useLanguage";
 import { criptoDict } from "../_i18n";
@@ -14,10 +15,9 @@ export default function Intro() {
       <div className="max-w-[1160px] mx-auto px-5 py-20 grid md:grid-cols-[0.85fr_1.15fr] gap-12 items-start">
         <Reveal>
           <div className="cyber aspect-[4/3] border-2 border-[var(--c-ink)] shadow-[5px_5px_0_var(--c-ink)]">
-            <div className="cyber-sun" />
-            <div className="cyber-grid" />
-            <div className="cyber-scan" />
+            <BaseWave />
             <span className="cyber-tag">SYS://ONCHAIN</span>
+            <span className="cyber-tag cyber-tag-net">base-mainnet</span>
           </div>
         </Reveal>
 
