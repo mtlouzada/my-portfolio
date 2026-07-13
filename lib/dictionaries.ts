@@ -20,7 +20,7 @@ const en = {
   about: {
     label: "About",
     headline:
-      "I build fullstack applications end to end — robust .NET back ends and refined React front ends, in agile environments with automated testing and CI/CD.",
+      "I've shipped for real clients, contributed to open source and built my own products end to end — with tests and CI from the first commit. The projects below are the proof.",
     groups: [
       {
         label: "BACK-END",
@@ -145,7 +145,7 @@ const pt: Dictionary = {
   about: {
     label: "Sobre",
     headline:
-      "Construo aplicações fullstack do início ao fim — back-end robusto em .NET e front-end refinado em React, em ambientes ágeis com testes automatizados e CI/CD.",
+      "Já entreguei pra cliente real, contribuo com open source e construo produtos próprios de ponta a ponta — com testes e CI desde o primeiro commit. Os projetos abaixo são a prova.",
     groups: [
       {
         label: "BACK-END",
